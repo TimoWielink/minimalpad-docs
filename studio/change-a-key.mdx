@@ -1,0 +1,63 @@
+---
+title: "Change What a Key Does on Your MinimalPad"
+sidebarTitle: "Change a Key"
+description: "Remap any key on any layer using MinimalPad Studio — pick a category, configure the action, assign it, and save. No reflashing required."
+---
+
+Every key on every layer of your MinimalPad is configurable in Studio. You can change what a key does in under a minute, test it immediately, and save when you're happy — no firmware rebuild or reflash required.
+
+[Screenshot: Action category picker showing Shortcut, Single Key, Media & Apps, Layers, Device Controls, Advanced tiles]
+
+## Steps to remap a key
+
+<Steps>
+  <Step title="Connect your MinimalPad to Studio">
+    Open [Studio](https://studio.minimalmacropad.com/configure) and connect your device over USB or Bluetooth. See [Connect via USB](/connecting/connect-usb) if you need help. Once the connection indicator turns green, you're ready to edit.
+  </Step>
+  <Step title="Select the layer you want to edit">
+    Click the layer tab at the top of the interface for the layer you want to change. The grid updates to show that layer's current assignments.
+  </Step>
+  <Step title="Click the key you want to change">
+    Click any key in the 4×4 grid — or click the encoder press button — to open the action picker for that key position.
+  </Step>
+  <Step title="Choose a category or search">
+    The action picker opens with six category tiles and a search bar:
+
+    - **Shortcut** — press multiple keys together (e.g. `Cmd+C`, `Ctrl+Shift+Left`)
+    - **Single Key** — a single letter, number, arrow, symbol, or function key
+    - **Media & Apps** — playback, volume, brightness, browser, and app controls
+    - **Layers** — hold, toggle, or switch to another layer (Momentary, Layer-Tap, Toggle, and more)
+    - **Device Controls** — Bluetooth profiles, RGB lighting, USB output, and system actions
+    - **Advanced** — dual-action behaviors, sticky keys, firmware macros, and every ZMK behavior compiled into your firmware
+
+    Use the **search bar** to find an action by name — try "tap hold", "brightness", or "Bluetooth".
+  </Step>
+  <Step title="Configure the action">
+    After selecting a category and behavior, configure its parameters. For example: choose which key to send, which layer to target, which Bluetooth profile to use, or which RGB adjustment to apply. Some behaviors require no additional settings.
+  </Step>
+  <Step title="Click Assign to apply">
+    Click **Assign to key** at the bottom of the picker. Studio sends the change to your device immediately. The key label on the grid updates to reflect the new assignment.
+  </Step>
+  <Step title="Save your changes">
+    Click the **Save** button (floppy disk icon) in the connection bar at the bottom of the screen. This writes the change to your device's flash memory so it persists after disconnecting or powering off.
+  </Step>
+</Steps>
+
+<Tip>
+  Test the key immediately after clicking Assign — before saving. If it doesn't behave as expected, adjust the parameters or try a different behavior. Only save once you're satisfied.
+</Tip>
+
+<Warning>
+  If you disconnect or lose connection before clicking Save, any unsaved changes are lost. The device reverts to its last saved configuration.
+</Warning>
+
+## Action categories at a glance
+
+| Category | Best for |
+|---|---|
+| [Shortcuts](/studio/shortcuts) | Multi-key combos with modifiers |
+| [Single Key](/studio/single-key) | Any individual keycode |
+| [Media & Apps](/studio/media-controls) | Volume, playback, display controls |
+| [Layers](/studio/layers) | Layer-switching behaviors |
+| [Bluetooth & Device](/studio/bluetooth-actions) | BLE profile management, RGB, system |
+| [Advanced](/studio/rgb-actions) | Tap/hold, macros, all ZMK behaviors |

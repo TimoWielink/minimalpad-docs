@@ -1,0 +1,76 @@
+---
+title: "Assign Media and App Controls to MinimalPad Keys"
+sidebarTitle: "Media Controls"
+description: "Assign playback, volume, display brightness, and application controls to any MinimalPad key using the Media & Apps category in MinimalPad Studio."
+---
+
+The Media & Apps category gives you dedicated keys for controlling audio playback, volume, display brightness, and common application actions — without needing the target app to be in focus. Assign any of these to a MinimalPad key and control your media from anywhere.
+
+## Assign a media or app control
+
+<Steps>
+  <Step title="Open Studio and connect your MinimalPad">
+    Go to [studio.minimalmacropad.com/configure](https://studio.minimalmacropad.com/configure) in Chrome or Edge, then connect via USB or Bluetooth.
+  </Step>
+  <Step title="Click the key you want to assign">
+    Click any key on the on-screen layout. The action picker opens on the right.
+  </Step>
+  <Step title="Choose the Media & Apps category">
+    Select **Media & Apps** from the action category picker.
+  </Step>
+  <Step title="Select an action">
+    Browse the available controls and select the one you want.
+  </Step>
+  <Step title="Click Assign">
+    The action is applied immediately so you can test it right away.
+  </Step>
+  <Step title="Save your changes">
+    Click **Save** to write the assignment to your MinimalPad's flash memory.
+  </Step>
+</Steps>
+
+## Available controls
+
+**Playback**
+
+| Action         | What it does                              |
+|----------------|-------------------------------------------|
+| Play/Pause      | Toggles playback in the active media app  |
+| Stop           | Stops playback entirely                   |
+| Previous Track | Jumps to the previous track               |
+| Next Track     | Skips to the next track                   |
+| Rewind         | Rewinds within the current track          |
+| Fast Forward   | Fast-forwards within the current track    |
+
+**Volume**
+
+| Action      | What it does                          |
+|-------------|---------------------------------------|
+| Volume Up   | Increases the system volume           |
+| Volume Down | Decreases the system volume           |
+| Mute        | Toggles system audio mute on and off  |
+
+**Display**
+
+| Action           | What it does                    |
+|------------------|---------------------------------|
+| Brightness Up    | Increases screen brightness     |
+| Brightness Down  | Decreases screen brightness     |
+
+**Browser and application**
+
+| Action           | What it does                             |
+|------------------|------------------------------------------|
+| Browser Back     | Navigates back in the browser history    |
+| Browser Forward  | Navigates forward in the browser history |
+| Browser Refresh  | Refreshes the current page               |
+| Browser Home     | Opens the browser's home page            |
+| Browser Search   | Opens the browser search bar             |
+
+<Note>
+  The controls available in Studio are read from your installed firmware. If an action does not appear in the picker, it may not be included in your firmware build. You can add support for additional consumer key codes by editing the firmware. See [Advanced Customization](/firmware/advanced-customization) for details.
+</Note>
+
+<Tip>
+  Media keys operate at the OS level and work globally — the target app does not need to be focused. This makes them ideal for play/pause while you are in a code editor, design tool, or terminal.
+</Tip>

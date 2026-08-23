@@ -1,0 +1,50 @@
+---
+title: "Configure the MinimalPad Rotary Encoder"
+sidebarTitle: "Encoder"
+description: "Learn how to configure the MinimalPad rotary encoder — assign any action to the encoder press in Studio, and understand how rotation is set in firmware."
+---
+
+MinimalPad has a rotary encoder you can turn clockwise or counter-clockwise and press down like a button. The press action is fully configurable in MinimalPad Studio. The rotation behavior — what happens when you turn it — is defined in the firmware and shows as read-only in Studio.
+
+## Encoder press
+
+The encoder press is treated as a regular configurable key position. You assign actions to it exactly the same way you assign any other key on the grid.
+
+<Steps>
+  <Step title="Open Studio and connect your MinimalPad">
+    Go to [studio.minimalmacropad.com/configure](https://studio.minimalmacropad.com/configure) in Chrome or Edge, then connect via USB or Bluetooth.
+  </Step>
+  <Step title="Click the encoder press key">
+    In the Studio layout, click the encoder press position. It appears alongside the 16-key grid. The action picker opens on the right.
+  </Step>
+  <Step title="Choose an action">
+    Select any action from any category — Single Key, Shortcut, Media & Apps, Layers, Device Controls, or Advanced.
+  </Step>
+  <Step title="Click Assign">
+    The action is applied immediately and you can test it by pressing the encoder.
+  </Step>
+  <Step title="Save your changes">
+    Click **Save** to write the assignment to flash memory so it persists after a reboot.
+  </Step>
+</Steps>
+
+`[Screenshot: Studio showing the encoder area with the press key highlighted and rotation labels showing the lock icon]`
+
+<Note>
+  On different layers, the encoder press key can have a completely different action — just like any other key. For example, the press can be Play/Pause on the base layer and RGB Toggle on a lighting layer. Rotation behavior, however, is set per layer in the firmware and cannot be changed in Studio.
+</Note>
+
+## Encoder rotation
+
+Turning the encoder clockwise or counter-clockwise triggers firmware-defined actions. Studio displays the rotation assignments with a **lock icon** to indicate they are read-only. You cannot change them from Studio.
+
+In the default firmware, the encoder rotation is mapped as follows:
+
+- **Base layer (Media)**: rotate clockwise → Volume Up, rotate counter-clockwise → Volume Down
+- **BT + LED layer**: rotate clockwise → RGB Brightness Up, rotate counter-clockwise → RGB Brightness Down
+
+To change what the encoder rotation does, you need to edit the firmware keymap and reflash. See [Advanced Customization](/firmware/advanced-customization) for instructions.
+
+<Tip>
+  Assign the encoder press to something you reach for constantly — Play/Pause, Mute, or an RGB Toggle — since the encoder is easy to locate by feel without looking down. It is one of the most ergonomically accessible positions on the pad.
+</Tip>

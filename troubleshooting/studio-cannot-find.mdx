@@ -1,0 +1,39 @@
+---
+title: "Studio Cannot Find My MinimalPad: How to Fix It"
+sidebarTitle: "Studio Can't Find Device"
+description: "If MinimalPad Studio doesn't show your device in the connection dialog, follow these steps to diagnose and fix the problem."
+---
+
+If MinimalPad Studio does not show your MinimalPad in the connection dialog, work through the steps below in order. Most connection issues come down to the browser, the cable, or the firmware build.
+
+<Steps>
+  <Step title="Use Chrome or Edge">
+    Studio requires the Web Serial API, which is only available in Chrome and Edge. Open Studio at [https://studio.minimalmacropad.com/configure](https://studio.minimalmacropad.com/configure) in one of those browsers. Firefox and Safari are not supported and will not work regardless of other settings.
+  </Step>
+
+  <Step title="Use a data-capable USB-C cable">
+    Many USB-C cables are charge-only and cannot carry data. Try a different cable — one that came with a phone, tablet, or other device that uses data transfer. A cable labeled as a data cable or USB 2.0/3.x cable is a safe choice. Charge-only cables will power the MinimalPad but Studio will not be able to see it.
+  </Step>
+
+  <Step title="Check the USB port">
+    Try a different USB port on your computer. Avoid USB hubs if possible — connect the MinimalPad directly to a port on the machine itself. Some hubs do not reliably pass through serial devices.
+  </Step>
+
+  <Step title="Close other software using the serial port">
+    If another application has the serial port open — such as a terminal emulator, the Arduino IDE, QMK Toolbox, or another firmware configuration tool — Studio cannot claim the port. Close those applications and try connecting again.
+  </Step>
+
+  <Step title="Unplug and reconnect">
+    Disconnect the MinimalPad from your computer, wait a few seconds for the OS to release the port, then plug it back in. Return to Studio and try connecting again.
+  </Step>
+
+  <Step title="Confirm Studio-enabled firmware is installed">
+    The standard firmware build does not include Studio support. Studio can only connect to a device running the `minimalpad_with_studio` firmware. If you are unsure which firmware is installed, reflash with the correct build. See the [firmware installation guide](/firmware/install-base-firmware) for instructions.
+  </Step>
+</Steps>
+
+<Note>
+  No unlock step is required with the current MinimalPad firmware. If Studio connects but shows a lock icon and asks you to unlock the device, you may have an older firmware build installed. Reflash with the `minimalpad_with_studio` build to resolve this.
+</Note>
+
+If you have worked through all the steps above and Studio still cannot find your MinimalPad, see the [firmware recovery guide](/firmware/recover) for next steps.

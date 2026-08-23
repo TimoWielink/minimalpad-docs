@@ -1,0 +1,79 @@
+---
+title: "MinimalPad Frequently Asked Questions"
+sidebarTitle: "FAQ"
+description: "Answers to the most common questions about MinimalPad compatibility, wireless setup, accessories, switch swapping, and Studio configuration."
+---
+
+Find answers to the most common questions about MinimalPad below. If your question isn't covered here, visit the [product website](https://www.minimalmacropad.com/) or browse the rest of the documentation.
+
+<AccordionGroup>
+  <Accordion title="Does MinimalPad work on macOS, Windows, and Linux?">
+    Yes. MinimalPad identifies itself to the operating system as a standard HID (Human Interface Device) — the same class as any other keyboard. No drivers are required on macOS, Windows, or Linux.
+  </Accordion>
+
+  <Accordion title="Does MinimalPad work without Studio running?">
+    Yes. Your key assignments are stored in flash memory on the device itself. Once you save a configuration in Studio, the MinimalPad uses those assignments every time it powers on — Studio does not need to be open, and the device does not need to be connected to any computer.
+  </Accordion>
+
+  <Accordion title="Can I use MinimalPad over USB?">
+    Yes. Plug in a data-capable USB-C cable and MinimalPad works immediately as a keyboard device. USB is also the most reliable connection method for configuring the device in Studio.
+  </Accordion>
+
+  <Accordion title="Can I use MinimalPad wirelessly?">
+    Yes. MinimalPad supports Bluetooth Low Energy with up to 5 saved profiles, so you can pair it with up to five devices and switch between them. A 3.7V LiPo battery (not included) is required for wireless operation.
+  </Accordion>
+
+  <Accordion title="Is a USB-C cable included?">
+    No. You need to supply your own USB-C cable. Make sure to use a data-capable cable — charge-only cables will power the device but will not work for Studio configuration or USB keyboard use.
+  </Accordion>
+
+  <Accordion title="Is a battery included?">
+    No. A 3.7V LiPo battery with a JST connector is required for wireless operation but is not included in the box. See the [product website](https://www.minimalmacropad.com/) for the required specifications before purchasing a battery.
+  </Accordion>
+
+  <Accordion title="What battery do I need?">
+    You need a 3.7V LiPo battery with a JST connector. The required voltage, connector type, connector pitch, polarity, and recommended physical dimensions are listed on the [product website](https://www.minimalmacropad.com/). Check those specifications before purchasing to make sure the battery fits your build.
+  </Accordion>
+
+  <Accordion title="Can I replace the switches?">
+    Yes. MinimalPad uses Kailh Choc low-profile hot-swap sockets on all 16 key positions. You can swap switches in and out without soldering — just pull the old switch out and press the new one in.
+  </Accordion>
+
+  <Accordion title="Can I configure the encoder rotation?">
+    Encoder rotation (clockwise and counter-clockwise actions) is defined in the firmware and appears as read-only in Studio. To change rotation behaviour, you need to edit the firmware and reflash the device. See [Advanced Customization](/firmware/advanced-customization) for instructions.
+
+    The encoder press, however, is fully configurable in Studio just like any other key position.
+  </Accordion>
+
+  <Accordion title="Can I control the RGB lighting?">
+    Yes. In MinimalPad Studio, assign RGB action keys to any key position to control hue, brightness, saturation, animation speed, and lighting effects on the fly. See [RGB Actions](/studio/rgb-actions) for the full list of available controls.
+  </Accordion>
+
+  <Accordion title="Do key changes require reflashing the firmware?">
+    No. Key assignments are saved directly to the device through MinimalPad Studio without rebuilding or reflashing the firmware. Reflashing is only needed for lower-level changes or recovery situations.
+  </Accordion>
+
+  <Accordion title="When is a firmware rebuild required?">
+    A firmware rebuild and reflash is only needed if you want to:
+
+    - Change the encoder rotation (clockwise/counter-clockwise) behaviour
+    - Create or edit firmware-level macros
+    - Recover from a broken or corrupted firmware state
+
+    Everyday key reassignment, layer management, and RGB control are all handled through Studio with no rebuild required.
+  </Accordion>
+
+  <Accordion title="Where can I see current product configurations and prices?">
+    Visit the [product website](https://www.minimalmacropad.com/) for up-to-date pricing, available configurations, color options, and stock information.
+  </Accordion>
+
+  <Accordion title="What is the difference between the DIY kit and the assembled version?">
+    The DIY kit comes with all the parts and requires you to complete the assembly yourself. Note that while SMD components are pre-soldered, a soldering iron is still needed for the through-hole components. The assembled version is fully built, flashed with firmware, and tested before it ships.
+
+    See [Choose Your MinimalPad](/getting-started/choose-your-minimalpad) for a detailed comparison to help you decide which option is right for you.
+  </Accordion>
+
+  <Accordion title="What browser do I need for MinimalPad Studio?">
+    You need Chrome or Edge. Studio uses the Web Serial API for USB connections and the Web Bluetooth API for wireless connections, and these APIs are only supported in Chromium-based browsers. Firefox and Safari are not supported.
+  </Accordion>
+</AccordionGroup>

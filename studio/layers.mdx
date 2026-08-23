@@ -1,0 +1,50 @@
+---
+title: "Use Layers to Multiply Your MinimalPad's Keys"
+sidebarTitle: "Layers"
+description: "Use layers in MinimalPad Studio to give the same 16 physical keys different actions in different contexts — like Shift on a full keyboard, but for everything."
+---
+
+Think of layers like transparent sheets stacked on top of each other. Each sheet has its own key assignments. Only one layer is active at a time — the bottom layer is always on, and higher layers override it when activated. With layers, your 16 physical keys can do many more than 16 things.
+
+MinimalPad supports multiple named layers. You manage them directly in MinimalPad Studio without reflashing.
+
+`[Screenshot: Studio showing multiple layer tabs at the top of the interface]`
+
+## Inspect a layer
+
+Click any layer tab at the top of the Studio layout view. The key grid updates to show the assignments for that layer. You can click individual keys to view or change their actions.
+
+## Rename a layer
+
+Double-click a layer tab, or click the pencil icon next to the layer name, type the new name, and confirm. Descriptive names like "Media", "Shortcuts", or "Windows" make it easier to navigate your layout later.
+
+`[Screenshot: Studio showing the rename layer prompt]`
+
+## Add a layer
+
+Click the **New layer** button in Studio. A new empty layer is created and added as a tab. Keys on a new layer default to a transparent (pass-through) state, which means they fall through to the layer below unless you assign something.
+
+## Remove a layer
+
+Click the trash icon next to the layer tab you want to delete. You must have at least two layers — Studio will not let you remove the last remaining layer.
+
+<Warning>
+  Before removing a layer, make sure you still have a way to reach any content you care about, and that no other layer depends on it. If you delete a layer that other layers reference, or remove the only key that activates it, you lose access to those assignments. Save your layout before making structural changes.
+</Warning>
+
+## Activate layers from keys
+
+Assign a layer activation action to any key to switch layers while you use your MinimalPad. Choose from the **Layers** category in the Studio action picker.
+
+`[Screenshot: Studio showing layer activation actions in the action picker]`
+
+| Behavior | How it works |
+|---|---|
+| **Momentary (MO)** | The layer is active only while you hold the key — release it and the previous layer returns. Works like Shift on a standard keyboard. |
+| **Toggle (TG)** | Tap once to activate the layer; tap the same key again to deactivate it. The layer stays on between key presses. |
+| **Layer-Tap (LT)** | Hold the key to activate the layer momentarily; tap it briefly to send a regular keypress instead. Lets one key serve two purposes. |
+| **To (TO)** | Switches to that layer and stays there until another layer activation key is pressed. Useful for locked modes like a gaming or numpad layer. |
+
+<Tip>
+  Start by creating one layer per context — for example, a Media layer, a Shortcuts layer, and a system-specific layer for macOS or Windows. Assign a Momentary key at the bottom of your base layer to reach each one. See [Shortcuts](/studio/shortcuts) for ideas on what to put on those layers.
+</Tip>

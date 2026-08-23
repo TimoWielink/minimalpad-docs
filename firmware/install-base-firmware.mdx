@@ -1,0 +1,87 @@
+---
+title: "Install the MinimalPad Studio Firmware"
+sidebarTitle: "Install Firmware"
+description: "Download the minimalpad_with_studio firmware artifact from GitHub Actions and flash it to your MinimalPad in a few simple steps."
+---
+
+Flashing the firmware installs the base software onto your MinimalPad's microcontroller. You need to do this when setting up a new device, recovering from broken or incompatible firmware, or updating to a newer firmware version. The process takes only a few minutes and does not require any programming tools.
+
+<Warning>
+You need a **data-capable USB-C cable** for firmware flashing. A charge-only cable will not expose the bootloader drive. If the drive doesn't appear after double-clicking reset, try a different cable first.
+</Warning>
+
+## The Right Firmware Build
+
+The firmware repository produces two builds. You want **`minimalpad_with_studio`** — this is the only build that includes the Studio communication layer. Without it, MinimalPad Studio cannot connect to your device.
+
+## Steps
+
+<Steps>
+
+### Go to the firmware repository
+
+Open [https://github.com/TimoWielink/zmk-config-minimalpad](https://github.com/TimoWielink/zmk-config-minimalpad) in your browser.
+
+### Open the Actions tab
+
+Click **Actions** in the top navigation bar of the repository page.
+
+### Open the most recent successful run
+
+Click the most recent workflow run that shows a green checkmark. A green checkmark means the build completed without errors.
+
+### Scroll to Artifacts
+
+Scroll to the bottom of the workflow run page until you see the **Artifacts** section.
+
+### Download the correct artifact
+
+Click **`minimalpad_with_studio`** to download it. The file downloads as a `.zip` archive.
+
+`[Screenshot: GitHub Actions page showing the artifact download section with minimalpad_with_studio highlighted]`
+
+### Unzip the archive
+
+Unzip the downloaded file. Inside you will find a `.uf2` file. This is the firmware file you will copy to your MinimalPad.
+
+### Connect MinimalPad to your computer
+
+Plug your MinimalPad into your computer using a data-capable USB-C cable.
+
+### Enter bootloader mode
+
+**Double-click the reset button** on the bottom of the MinimalPad. After the second click, a USB mass storage drive appears on your computer.
+
+<Note>
+The drive name varies by controller. On a Nice!Nano V2 it appears as **NICENANO**. On a generic nRF52840 clone it may appear with a different name. Either way, look for a new removable drive appearing in your file manager or on your desktop.
+</Note>
+
+`[Screenshot: Bootloader USB drive appearing in file manager]`
+
+### Drag and drop the UF2 file
+
+Drag the `.uf2` file from your Downloads folder onto the bootloader drive, just as you would copy any file to a USB drive.
+
+### Wait for the device to restart
+
+The drive disappears automatically as soon as the copy completes. MinimalPad restarts itself with the new firmware — no eject or button press needed.
+
+### Connect in Studio
+
+Open [MinimalPad Studio](https://studio.minimalmacropad.com/configure) in Chrome or Edge and connect your device. You are ready to configure your keys.
+
+<Note>
+No unlock step is required. As soon as Studio connects, you can start editing immediately.
+</Note>
+
+</Steps>
+
+## Troubleshooting
+
+If the bootloader drive does not appear after double-clicking reset, check the following:
+
+- Make sure you are using a data-capable USB-C cable, not a charge-only cable.
+- Try varying the speed of the double-click — some controllers respond to a specific timing.
+- Try a different USB port or a different cable.
+
+If the drive still does not appear, see [Recovery](/firmware/recover) for additional steps.

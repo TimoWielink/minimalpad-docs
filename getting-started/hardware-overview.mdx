@@ -1,0 +1,85 @@
+---
+title: "MinimalPad Hardware: Keys, Encoder, and Connections"
+sidebarTitle: "Hardware Overview"
+description: "Learn about MinimalPad's 16-key grid, rotary encoder, USB-C port, battery connector, RGB underglow, hot-swap sockets, and power behaviour."
+---
+
+MinimalPad is built around a 4×4 grid of hot-swap mechanical switches, a rotary encoder, and a wireless-capable nRF52840 controller — all in a compact low-profile form factor. This page explains what each part of the hardware does and how it relates to configuration in MinimalPad Studio.
+
+## The 16-key grid
+
+MinimalPad has 16 Kailh Choc low-profile mechanical key positions arranged in a 4×4 grid. Every key is independently programmable — each one can send a different action on each layer.
+
+Keys use Kailh Choc hot-swap sockets, meaning you can pull out and swap switches without soldering. Any Kailh Choc low-profile switch is compatible.
+
+To see what each key is currently assigned to, open [MinimalPad Studio](https://studio.minimalmacropad.com/configure) and connect your device. Studio shows a live map of every key on every layer.
+
+## Layers
+
+Layers let the same 16 physical keys do different things depending on which layer is active — similar to how Shift changes a key's output, but for entire sets of actions. You can view, add, remove, and rename layers in Studio.
+
+For example:
+- **Layer 0 (default):** your everyday shortcuts
+- **Layer 1:** media controls
+- **Layer 2:** application-specific actions
+
+Assign a key on any layer to activate another layer — momentarily, toggled, or as a tap/hold action. The current layer assignments are always visible in Studio.
+
+## Rotary encoder
+
+The rotary encoder sits at the top of the pad and has two distinct inputs:
+
+- **Rotate clockwise / counter-clockwise** — these actions are defined in the firmware and appear as read-only in Studio. You cannot change them through the browser configurator; changing them requires editing the firmware.
+- **Press the encoder** — pressing the encoder shaft down acts like a regular key press. This action is fully configurable in Studio, just like any of the 16 grid keys.
+
+<Note>
+  The encoder's rotation behaviour is firmware-defined and locked in Studio — you'll see it displayed but won't be able to reassign it without reflashing. The encoder press, however, is a normal configurable key position.
+</Note>
+
+## USB-C port
+
+The USB-C port on MinimalPad serves three purposes:
+
+1. **Power** — charge the battery or run the device directly from USB power
+2. **Wired connection** — use MinimalPad as a wired keyboard and connect to Studio over USB/Serial
+3. **Firmware flashing** — put the device into bootloader mode to drag-and-drop a new firmware file
+
+<Warning>
+  Use a **data-capable** USB-C cable. Charge-only cables will not establish a connection with Studio and cannot be used for firmware flashing.
+</Warning>
+
+## Battery connector
+
+The JST connector on the PCB accepts a 3.7V LiPo battery for wireless operation. A battery is not included — see [Before You Begin](/getting-started/before-you-begin) for specifications and polarity notes before purchasing one.
+
+MinimalPad charges the battery through the USB-C port. You can use the device while it charges.
+
+## Power behaviour
+
+| State | What happens |
+|---|---|
+| Plugged in via USB | Powers on immediately; USB takes priority over battery |
+| Battery only | Powers on when you press a key or move the encoder |
+| Idle for ~30 seconds | RGB LEDs turn off; device enters light sleep; Bluetooth stays connected |
+| Idle for ~10 minutes | Device enters deep sleep; press any key to wake |
+
+ZMK's power management keeps battery consumption very low. You can expect weeks or months of battery life depending on usage patterns and battery capacity.
+
+## RGB underglow
+
+MinimalPad has 16 WS2812 RGB LEDs mounted under the PCB, creating an underglow effect. The LEDs are controlled through key assignments in Studio — assign any key to an RGB action such as Toggle, Brightness Up/Down, Hue change, or cycle through effects.
+
+RGB is off by default when the device wakes from sleep. Assign an RGB Toggle key to turn it back on quickly.
+
+## Hot-swap sockets
+
+All 16 key positions use Kailh Choc hot-swap sockets. To swap a switch:
+
+1. Use a switch puller or gently pry the switch upward from both sides
+2. Press the new switch straight down until both pins seat fully into the socket
+
+No soldering is required. Use only Kailh Choc low-profile switches — standard MX-height switches are not compatible with the low-profile sockets or keycaps.
+
+## Controller
+
+MinimalPad is built around the nRF52840 chip, housed in either a Nice!Nano V2 or an NRF52840 clone module depending on your configuration. Both run ZMK firmware and support all features — Bluetooth, USB, battery charging, and Studio configuration — identically.

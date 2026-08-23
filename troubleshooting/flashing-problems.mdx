@@ -1,0 +1,47 @@
+---
+title: "Fix Firmware Flashing Problems on MinimalPad"
+sidebarTitle: "Flashing Problems"
+description: "Resolve common firmware flashing issues on MinimalPad, including bootloader drive not appearing and the device not responding after flashing."
+---
+
+Flashing MinimalPad firmware is straightforward — double-click reset, drag the UF2 file onto the bootloader drive, done. A few things can get in the way, though. Find your situation in the sections below.
+
+<AccordionGroup>
+  <Accordion title="The bootloader drive does not appear after double-clicking reset">
+    - **Check your USB-C cable.** Charge-only cables will not work. Use a data-capable USB-C cable — one you know carries data, such as a cable that came with a phone or a labeled USB 2.0/3.x cable.
+    - **Try a different USB port.** Avoid hubs — connect directly to your computer. Try a different port on the machine itself.
+    - **Vary the double-click speed.** The bootloader entry requires two presses of the reset button in quick succession, but not too fast. Try a slightly slower or faster double-click rhythm.
+    - **Check whether the device appears as a serial port instead.** If MinimalPad shows up in Studio as a normal serial device but not as a storage drive, you are running firmware rather than the bootloader. Double-click reset while the cable is connected and the device is powered on.
+    - **Try triple-clicking or holding the reset button.** Some NRF52840 clones have slightly different bootloader entry behaviour. If double-clicking consistently fails, try three quick clicks or holding the button for two seconds.
+  </Accordion>
+
+  <Accordion title="The bootloader drive appears but disappears immediately after copying the UF2">
+    This is expected behaviour and means the flash was successful. When you copy a UF2 file onto the bootloader drive, the controller validates and writes the firmware, then automatically restarts and unmounts the drive. Wait a few seconds — the MinimalPad will reboot into the new firmware on its own. No further action is needed.
+  </Accordion>
+
+  <Accordion title="The device restarts but behaves incorrectly after flashing">
+    - Confirm you downloaded and flashed the **`minimalpad_with_studio`** firmware artifact. The standard build (without Studio support) is a separate file and will not expose the Studio configuration interface.
+    - Re-download the correct UF2 from the [firmware repository](https://github.com/TimoWielink/zmk-config-minimalpad) (GitHub Actions artifacts), enter the bootloader again by double-clicking reset, and copy the correct file.
+  </Accordion>
+
+  <Accordion title="Controller differences — bootloader drive name">
+    The name of the bootloader drive depends on which controller your MinimalPad uses:
+
+    - **Nice!Nano V2** — the drive appears as `NICENANO`.
+    - **Generic NRF52840 clone** — the drive name may differ. After double-clicking reset, look for a new removable storage device that appears in your file manager or Finder. The UF2 copy procedure is identical regardless of the drive name.
+  </Accordion>
+
+  <Accordion title="Safe retry procedure if a flash attempt fails or the device seems stuck">
+    If the device appears frozen, the drive did not appear, or something else went wrong mid-flash:
+
+    1. Unplug the MinimalPad from USB.
+    2. Wait at least 10 seconds.
+    3. Plug it back in.
+    4. Double-click the reset button to enter the bootloader.
+    5. Copy the UF2 file onto the drive again.
+
+    Repeating this process is safe. The bootloader is stored in protected memory and cannot be overwritten by a UF2 flash.
+  </Accordion>
+</AccordionGroup>
+
+For the full step-by-step flashing walkthrough, see the [firmware installation guide](/firmware/install-base-firmware). If your device is completely unresponsive and the bootloader cannot be entered, see the [firmware recovery guide](/firmware/recover).

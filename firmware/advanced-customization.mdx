@@ -1,0 +1,136 @@
+---
+title: "Advanced: Customize MinimalPad Firmware"
+sidebarTitle: "Advanced Customization"
+description: "Edit the MinimalPad keymap source to change encoder rotation, create firmware macros, and modify compiled behavior beyond what Studio can do."
+---
+
+<Warning>
+This page is for advanced users who need to modify the firmware source code. Most key customization — including assigning keys, managing layers, and controlling RGB — can be done without touching the firmware. Use [MinimalPad Studio](https://studio.minimalmacropad.com/configure) for everyday configuration. See [Firmware vs Studio](/firmware/firmware-and-studio) to decide which approach you need.
+</Warning>
+
+Some MinimalPad behaviors are compiled into the firmware and cannot be changed from the browser. To modify them, you edit the firmware source files, build new firmware using GitHub Actions, and flash the result to your device.
+
+## When Advanced Customization Is Needed
+
+- **Changing encoder rotation** — what happens when you turn the encoder clockwise or counter-clockwise
+- **Creating or editing firmware macros** — multi-step key sequences defined in the keymap source
+- **Changing default boot behavior** — which layer the device starts on
+
+## Key Source Files
+
+All source files live in the [firmware repository](https://github.com/TimoWielink/zmk-config-minimalpad). The files you are most likely to edit are:
+
+| File | Purpose |
+|---|---|
+| `boards/shields/minimalpad/minimalpad.keymap` | Key bindings and encoder sensor-bindings for each layer |
+| `config/west.yml` | ZMK module dependencies |
+| `build.yaml` | Firmware build variants (defines `minimalpad_with_studio`) |
+
+## Understanding the Keymap Structure
+
+The keymap file uses ZMK **behaviors** to define what each position does. Common behaviors include:
+
+- `&kp` — a standard key press (e.g., `&kp C_VOL_UP`)
+- `&mo` — momentarily activate a layer while held
+- `&bt` — Bluetooth profile actions
+- `&rgb_ug` — RGB underglow controls
+- `&out` — toggle between USB and Bluetooth output
+
+Each layer has a `bindings` array listing all **17 positions**: 16 keys in the 4×4 grid, followed by the encoder press on the last line. After the bindings array, `sensor-bindings` defines the encoder rotation behavior for that layer.
+
+Here is the structure of a layer in the default keymap:
+
+```c
+media_layer {
+    display-name = "Media";
+    bindings = <
+        &kp C_PREV      &kp C_PP        &kp C_NEXT      &kp C_MUTE
+        &kp C_VOL_DN    &kp C_VOL_UP    &kp C_STOP      &kp C_EJECT
+        &kp C_RW        &kp C_FF        &kp C_BRI_DN    &kp C_BRI_UP
+        &kp C_VOL_DN    &kp C_VOL_UP    &kp C_PP        &mo BTLED
+        &kp C_PP
+    >;
+    sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+};
+```
+
+The `sensor-bindings` line defines: CW = `C_VOL_UP`, CCW = `C_VOL_DN`.
+
+## Changing Encoder Rotation
+
+Encoder rotation is controlled by the `sensor-bindings` line in each layer. To change it:
+
+1. Open `boards/shields/minimalpad/minimalpad.keymap` in your fork.
+2. Find the `sensor-bindings` line in the layer you want to change.
+3. Replace the two behaviors with your desired CW and CCW actions.
+
+**Example — Volume control (the default):**
+```c
+sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+```
+CW turns volume up; CCW turns volume down.
+
+**Example — Scroll up/down:**
+```c
+sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+```
+
+**Example — Custom RGB brightness on a layer** (using a named `sensor-rotate` behavior, as in the default `btled_layer`):
+```c
+rgb_encoder: rgb_encoder {
+    compatible = "zmk,behavior-sensor-rotate";
+    #sensor-binding-cells = <0>;
+    bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+};
+```
+Then reference it in the layer: `sensor-bindings = <&rgb_encoder>;`
+
+<Note>
+`&inc_dec_kp` works for standard key presses. For RGB or other non-keypress behaviors, define a `zmk,behavior-sensor-rotate` block as shown above.
+</Note>
+
+After editing, commit your changes, let GitHub Actions build the firmware, download the **`minimalpad_with_studio`** artifact, and flash it. See [Build with GitHub Actions](/firmware/build-with-github-actions) and [Install Firmware](/firmware/install-base-firmware).
+
+## Creating a Firmware Macro
+
+Firmware macros let you emit a precise sequence of key events — useful for text snippets, complex shortcuts, or application-specific sequences. They are defined in the keymap file and compiled into the firmware.
+
+**Basic steps:**
+
+1. Define a `&macro` behavior block in the `behaviors` section of the keymap file:
+
+```c
+behaviors {
+    my_macro: my_macro {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&kp H &kp E &kp L &kp L &kp O>;
+    };
+};
+```
+
+2. Assign it to a key position in a layer's `bindings` array:
+
+```c
+&my_macro
+```
+
+3. Build and flash the new firmware.
+
+<Note>
+Macro sequences are compiled into the firmware. Once flashed, the macro itself cannot be edited from Studio — only its key assignment position can be changed. To update the sequence, edit the source and reflash.
+</Note>
+
+For the full macro behavior reference, including wait times, tap-then-hold, and parameter macros, see the [ZMK Macros documentation](https://zmk.dev/docs/behaviors/macros).
+
+## Full ZMK Reference
+
+MinimalPad uses standard ZMK firmware. For anything beyond the examples above — custom behaviors, combos, hold-tap configuration, and more — the [ZMK documentation](https://zmk.dev/docs) is the authoritative reference.
+
+## After Editing
+
+Once you have made your changes:
+
+1. Commit and push to your forked repository.
+2. GitHub Actions builds the firmware automatically. See [Build with GitHub Actions](/firmware/build-with-github-actions).
+3. Download the **`minimalpad_with_studio`** artifact and flash it. See [Install Firmware](/firmware/install-base-firmware).

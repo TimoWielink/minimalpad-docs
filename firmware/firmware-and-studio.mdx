@@ -1,0 +1,49 @@
+---
+title: "Firmware and Studio: What Each One Does"
+sidebarTitle: "Firmware vs Studio"
+description: "Learn when to use MinimalPad Studio for key changes and when you actually need to rebuild and reflash the firmware."
+---
+
+MinimalPad has two distinct layers of software that work together: the **firmware** running on the device itself, and **MinimalPad Studio**, the browser-based configurator. Understanding what each one does helps you choose the right tool for any task — and means most users never need to touch the firmware at all.
+
+## The Firmware
+
+The firmware is the base software flashed onto MinimalPad's nRF52840 microcontroller. It does the heavy lifting: it drives the keys, encoder, RGB underglow, Bluetooth radio, and USB connection. It also establishes the communication channel that Studio uses to read and write your configuration.
+
+Beyond hardware support, the firmware defines certain behaviors that cannot be changed from the browser:
+
+- **Encoder rotation** — what happens when you turn the encoder clockwise or counter-clockwise is set in `sensor-bindings` in the keymap source and compiled into the firmware.
+- **Firmware macros** — multi-step sequences defined directly in the keymap file.
+- **Default boot behavior** — which layer loads on startup.
+
+The firmware you want is the **`minimalpad_with_studio`** build. This is the variant that includes the Studio communication layer. Without it, Studio cannot connect to your device.
+
+## MinimalPad Studio
+
+[MinimalPad Studio](https://studio.minimalmacropad.com/configure) is a browser-based configurator that connects to your MinimalPad over USB or Bluetooth and lets you change key assignments, manage layers, and control RGB lighting — all without reflashing.
+
+Studio reads your current configuration directly from the device and writes changes back in real time. When you assign a key, the change takes effect immediately. Saving writes it to the device's flash memory so it persists across power cycles.
+
+<Tip>
+Most users only ever need Studio. Rebuild the firmware only when you need to change encoder rotation, create firmware macros, or recover a device.
+</Tip>
+
+## When to Use Each
+
+| Task | Use Studio | Rebuild Firmware |
+|---|:---:|:---:|
+| Change what a key does | ✓ | — |
+| Add or remove a layer | ✓ | — |
+| Rename a layer | ✓ | — |
+| Assign Bluetooth profile actions | ✓ | — |
+| Assign RGB lighting actions | ✓ | — |
+| Change encoder rotation | — | ✓ |
+| Create or edit a firmware macro | — | ✓ |
+| Change default boot behavior | — | ✓ |
+| Recover from broken firmware | — | ✓ |
+
+## Next Steps
+
+If you need to flash or update the firmware, see [Install the MinimalPad Studio Firmware](/firmware/install-base-firmware).
+
+If you want to edit firmware source files — for encoder rotation, macros, or other advanced changes — see [Advanced: Customize MinimalPad Firmware](/firmware/advanced-customization).

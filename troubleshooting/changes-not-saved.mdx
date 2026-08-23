@@ -1,0 +1,45 @@
+---
+title: "My MinimalPad Changes Were Not Saved: How to Fix"
+sidebarTitle: "Changes Not Saved"
+description: "Learn why key assignment changes in MinimalPad Studio may not persist and how to make sure your configuration is written to the device."
+---
+
+In MinimalPad Studio, assigning a key and saving your changes are two separate steps. A change sent to the device is active immediately but is only permanent once you explicitly save it to flash. If your MinimalPad reverted to a previous configuration after disconnecting or powering off, one of the steps below was likely missed.
+
+## Step 1 — Did you save?
+
+Clicking **Assign** sends the change to the device and makes it active right away, but it does not write the change to flash memory. To make changes permanent, you must also click the **Save** button (the floppy disk icon) before disconnecting. If the Save button is not visible, your changes were already written — or there were no pending changes to save.
+
+## Step 2 — Was the device still connected when you saved?
+
+If you disconnected the MinimalPad before clicking Save, the pending changes were held only in memory and are now lost. You will need to reconnect and reapply the changes.
+
+## Step 3 — Reconnect and retry
+
+<Steps>
+  <Step title="Connect MinimalPad to Studio">
+    Plug in your MinimalPad and open [https://studio.minimalmacropad.com/configure](https://studio.minimalmacropad.com/configure). Connect using USB or Bluetooth. See the [USB connection guide](/connecting/connect-usb) if needed.
+  </Step>
+
+  <Step title="Reapply your key changes">
+    Navigate to the key or layer you want to configure and make your assignments again.
+  </Step>
+
+  <Step title="Click Assign for each change">
+    For each key you modify, confirm the change by clicking **Assign**. The key should update immediately on the device.
+  </Step>
+
+  <Step title="Click Save before disconnecting">
+    Once all changes are assigned, click the **Save** button (floppy disk icon) to write everything to flash. Do not disconnect until the save confirmation appears.
+  </Step>
+</Steps>
+
+## Step 4 — Verify the save completed
+
+After saving, the Save button should disappear and a checkmark or confirmation indicator should appear, showing that all changes have been written to flash. Only disconnect after you see this confirmation.
+
+<Note>
+  If changes keep reverting even after you save correctly, the device's flash memory may be corrupted. Try reflashing the `minimalpad_with_studio` firmware to restore the device to a clean state, then reconfigure your keys. See the [firmware installation guide](/firmware/install-base-firmware) for instructions.
+</Note>
+
+For a full walkthrough of the save, discard, and disconnect workflow in Studio, see [Saving and Discarding Changes](/studio/save-discard-disconnect).

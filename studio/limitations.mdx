@@ -1,0 +1,39 @@
+---
+title: "What MinimalPad Studio Cannot Currently Change"
+sidebarTitle: "Studio Limitations"
+description: "Studio handles most configuration tasks, but encoder rotation, macro sequences, and some advanced behaviors require editing firmware and reflashing."
+---
+
+Studio covers the vast majority of day-to-day MinimalPad configuration — remapping keys, managing layers, assigning Bluetooth profiles, and controlling RGB lighting — all without touching firmware. A small set of things, however, are defined at the firmware level and can only be changed by editing the ZMK keymap source and rebuilding.
+
+## Current limitations
+
+### Encoder rotation (most common)
+
+The clockwise and counter-clockwise rotation bindings for the rotary encoder are defined as `sensor-bindings` in the firmware keymap file. Studio reads these values and displays them next to the encoder widget with a lock icon — but it cannot modify them.
+
+To change what turning the encoder does, you need to edit the firmware and reflash. See [Advanced Firmware Customization](/firmware/advanced-customization).
+
+### Firmware macros
+
+Macros compiled into the firmware can be assigned to any key in Studio — you'll find them in the **Advanced** category. However, Studio cannot edit the recorded sequence of a firmware macro. The steps that make up the macro (which keys are pressed, in what order, with what delays) are baked into the firmware.
+
+To change what a macro does, edit its definition in the ZMK keymap source and reflash. See [Advanced Firmware Customization](/firmware/advanced-customization).
+
+### RGB live color
+
+Studio lets you assign RGB action keys — Toggle, Hue +, Brightness −, Next Effect, and so on. What it does not offer is a color picker that directly pushes a specific color or lighting state to the device in real time. RGB control in Studio is action-based: you assign keys that adjust lighting when pressed, not a palette that sets values directly.
+
+### Available behaviors
+
+The actions available in Studio depend on what is compiled into the installed firmware. If you open the Advanced category and a behavior you expect isn't listed, it may not be included in your current firmware build. Adding new behaviors requires editing the firmware configuration and rebuilding. See [Advanced Firmware Customization](/firmware/advanced-customization).
+
+### Browser support
+
+Studio uses the Web Serial API (for USB connections) and the Web Bluetooth API (for BLE connections). These APIs are only available in **Chrome** and **Edge**. Firefox and Safari do not support them, and Studio will not function in those browsers.
+
+---
+
+<Tip>
+  For most users, Studio is all you need. The only reason to rebuild firmware is if you want to change encoder rotation behavior, add or modify firmware macros, or use a ZMK feature not included in the current build. See [Firmware and Studio](/firmware/firmware-and-studio) for a full comparison of what each approach offers.
+</Tip>

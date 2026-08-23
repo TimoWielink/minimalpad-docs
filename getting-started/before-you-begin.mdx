@@ -1,0 +1,68 @@
+---
+title: "What You Need Before Setting Up MinimalPad"
+sidebarTitle: "Before You Begin"
+description: "MinimalPad does not include a USB-C cable or battery. Check what you need before you start — including browser requirements for Studio."
+---
+
+Before you plug in your MinimalPad for the first time, make sure you have everything the box doesn't include. A missing USB-C data cable or an unsupported browser are the most common reasons first-time setups stall — this page covers all of them so you're ready to go.
+
+## What's not in the box
+
+### USB-C data cable
+
+<Warning>
+  A USB-C **data** cable is required and is **not included** in the box. A charge-only cable will not work for connecting to MinimalPad Studio or for flashing firmware — it carries power but no data signal. If Studio can't detect your MinimalPad, a charge-only cable is the most common cause.
+</Warning>
+
+Most USB-C cables sold for phone charging are charge-only. Look for a cable explicitly labelled as a data cable, or use one you know works for data transfer with other devices (such as a cable that came with a phone, laptop, or USB hub).
+
+### Battery (wireless operation only)
+
+<Warning>
+  A battery is required for wireless operation and is **not included**. MinimalPad can run on USB power alone for wired use, but you need a battery to use it over Bluetooth or to use it untethered.
+</Warning>
+
+You need a **3.7V LiPo battery with a JST connector**. This is the standard connector type used in most nRF52840-based wireless keyboards.
+
+Before purchasing a battery, check the [MinimalPad product website](https://www.minimalmacropad.com/) for the required:
+
+- Voltage (3.7V LiPo)
+- Connector type and pitch (JST)
+- Connector polarity — **verify polarity before connecting**; reversing polarity can damage the controller
+- Recommended physical dimensions so the battery fits inside the case
+
+Battery capacity is up to you. ZMK's power consumption is very low, so even a small battery provides substantial runtime. A 300–500mAh battery balances size and runtime well for most users; smaller batteries (110–250mAh) minimise bulk, while larger ones (600mAh+) maximise time between charges.
+
+<Tip>
+  Lithium batteries are regulated by shipping carriers, which is why they aren't bundled with MinimalPad. Sourcing one locally is usually quick — search for "3.7V LiPo JST keyboard battery" and you'll find plenty of compatible options.
+</Tip>
+
+## Browser requirements
+
+MinimalPad Studio uses the Web Serial API (for USB) and the Web Bluetooth API (for BLE configuration). These APIs are only available in Chromium-based browsers.
+
+| Browser | USB (Web Serial) | Bluetooth (Web Bluetooth) |
+|---|---|---|
+| **Chrome** | ✅ Supported | ✅ Supported |
+| **Edge** | ✅ Supported | ✅ Supported |
+| Firefox | ❌ Not supported | ❌ Not supported |
+| Safari | ❌ Not supported | ❌ Not supported |
+
+Use Chrome or Edge. No browser extension or plugin is required — Studio runs entirely in the browser tab.
+
+<Note>
+  Web Bluetooth support can vary by operating system even within Chrome and Edge. If the Bluetooth connection option doesn't work reliably in Studio, connect via USB instead — USB is the more reliable path for configuration and works on all supported platforms.
+</Note>
+
+## Operating system
+
+MinimalPad works on macOS, Windows, and Linux. No drivers are required. Once connected, it appears as a standard USB or Bluetooth keyboard on all three platforms.
+
+## Summary checklist
+
+Before you begin:
+
+- [ ] USB-C **data** cable (not included)
+- [ ] Chrome or Edge browser (latest version recommended)
+- [ ] Battery with correct specs, if using wirelessly (not included — check [minimalmacropad.com](https://www.minimalmacropad.com/) for specifications)
+- [ ] macOS, Windows, or Linux computer

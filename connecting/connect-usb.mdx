@@ -1,0 +1,48 @@
+---
+title: "Connect MinimalPad to Studio over USB"
+sidebarTitle: "Connect over USB"
+description: "Connect your MinimalPad to Studio using a USB-C cable for the most reliable editing experience. No unlock step required — edit immediately after connecting."
+---
+
+USB is the most reliable way to connect MinimalPad to Studio, and it is the only method available for firmware flashing. If you are setting up your pad for the first time or running into Bluetooth issues, start here.
+
+<Warning>
+  You must use a **data-capable USB-C cable**. Charge-only cables do not carry data signals and your MinimalPad will not appear in the browser device picker. If the pad does not show up, the cable is the most common cause.
+</Warning>
+
+## Connect your MinimalPad over USB
+
+<Steps>
+  <Step title="Plug in your MinimalPad">
+    Use a data-capable USB-C cable to connect MinimalPad to your computer. The RGB underglow lights up to confirm it has power.
+  </Step>
+  <Step title="Open Studio in Chrome or Edge">
+    Navigate to [https://studio.minimalmacropad.com/configure](https://studio.minimalmacropad.com/configure). Studio requires Chrome or Edge — other browsers do not support the Web Serial API.
+  </Step>
+  <Step title="Click the USB / Serial option">
+    In the connection dialog, click **USB / Serial** (labelled "Connect via USB-C cable"). The browser will open a device picker.
+  </Step>
+  <Step title="Select your MinimalPad">
+    Your MinimalPad appears in the list. Select it and click **Connect**. The picker automatically filters to ZMK devices, so only compatible hardware is shown.
+  </Step>
+  <Step title="Wait for the green status indicator">
+    The status bar at the bottom of Studio transitions from amber (connecting) to green and displays **"MinimalPad connected"**. This means the session is fully established.
+  </Step>
+  <Step title="Start editing">
+    Your current keymap loads automatically. Click any key on the layout to reassign it — no additional unlock step is needed.
+  </Step>
+</Steps>
+
+<Note>
+  No unlock step or unlock key is required. Because MinimalPad firmware is built with `CONFIG_ZMK_STUDIO_LOCKING=n`, the device is ready to edit as soon as it connects. You will never be asked to press a special key to unlock Studio.
+</Note>
+
+## Troubleshooting quick-fixes
+
+If things do not go smoothly, try these first:
+
+- **MinimalPad is not in the device list** — swap to a different USB-C cable (charge-only cables are common) or try a different USB port. Avoid passive USB hubs.
+- **Another application is using the serial port** — close any terminal emulator, flashing tool, or other serial monitor that may have claimed the port, then try again.
+- **The browser option is greyed out** — confirm you are using Chrome or Edge. Firefox and Safari do not support Web Serial.
+
+For a full walkthrough of Studio connection problems, see the [Studio cannot find device](/troubleshooting/studio-cannot-find) guide.

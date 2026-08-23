@@ -1,0 +1,84 @@
+---
+title: "Connect MinimalPad to Studio over Bluetooth"
+sidebarTitle: "Connect over Bluetooth"
+description: "Configure MinimalPad wirelessly from your desk using Bluetooth. Requires a charged 3.7 V LiPo battery and Chrome or Edge with Web Bluetooth support."
+---
+
+Bluetooth lets you configure MinimalPad without a cable — useful when the pad is already in its permanent spot on your desk or mounted to a surface. Once paired, opening Studio and clicking the Bluetooth option reconnects in seconds.
+
+## Before you begin
+
+Your MinimalPad needs a 3.7 V LiPo battery connected and sufficiently charged. A battery is **not included** with the pad; see [minimalmacropad.com](https://www.minimalmacropad.com/) for compatible options. Without a battery, the pad only operates while plugged in over USB-C.
+
+<Warning>
+  Web Bluetooth support varies by browser and operating system. It works reliably in **Chrome on Windows and macOS**. On Linux, it may require enabling the `chrome://flags/#enable-web-bluetooth` flag. If the Bluetooth option is greyed out or missing in Studio, use USB instead — USB works on all supported platforms.
+</Warning>
+
+## Connect your MinimalPad over Bluetooth
+
+<Tabs>
+  <Tab title="First time (new pairing)">
+    <Steps>
+      <Step title="Power on MinimalPad">
+        Connect a charged battery and power on the pad, or press any key to wake it from sleep. Make sure the pad is not already connected to another host over Bluetooth — if it is, it will not be discoverable.
+      </Step>
+      <Step title="Open Studio in Chrome or Edge">
+        Navigate to [https://studio.minimalmacropad.com/configure](https://studio.minimalmacropad.com/configure).
+      </Step>
+      <Step title="Click the Bluetooth option">
+        In the connection dialog, click **Bluetooth** (labelled "Connect wirelessly via BLE"). The browser will open its Bluetooth device picker.
+      </Step>
+      <Step title="Pair with your MinimalPad">
+        Select **MinimalPad** from the list of nearby devices and confirm the pairing request. Your operating system may show an additional confirmation dialog.
+      </Step>
+      <Step title="Wait for the green status indicator">
+        The status bar transitions from amber (connecting) to green and shows **"MinimalPad connected"**. The pairing is saved by your browser for future sessions.
+      </Step>
+      <Step title="Start editing">
+        Your current keymap loads automatically. No unlock step is required.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Already paired">
+    <Steps>
+      <Step title="Power on MinimalPad">
+        Connect the battery (if disconnected) and press a key to wake the pad. Make sure it is not actively connected to another Bluetooth host.
+      </Step>
+      <Step title="Open Studio in Chrome or Edge">
+        Navigate to [https://studio.minimalmacropad.com/configure](https://studio.minimalmacropad.com/configure).
+      </Step>
+      <Step title="Click the Bluetooth option">
+        In the connection dialog, click **Bluetooth**. The browser Bluetooth picker opens.
+      </Step>
+      <Step title="Select your MinimalPad">
+        Your previously paired MinimalPad appears in the list. Select it — no new pairing confirmation is needed.
+      </Step>
+      <Step title="Wait for the green status indicator">
+        The status bar turns green and shows **"MinimalPad connected"**. You are ready to edit.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+<Note>
+  No unlock step or unlock key is required. The device is ready to edit as soon as the status indicator turns green.
+</Note>
+
+<Tip>
+  If Bluetooth is unavailable or unstable in Studio, USB is always a reliable fallback and is required for firmware flashing. See [Connect over USB](/connecting/connect-usb) for instructions.
+</Tip>
+
+## Bluetooth profiles
+
+MinimalPad supports **five Bluetooth profiles** (slots 1–5), so you can pair it with up to five different hosts — for example, a desktop, a laptop, and a tablet. You can switch profiles, clear individual slots, or clear all profiles using the **Device Controls** key assignment category in Studio.
+
+| Action | What it does |
+|---|---|
+| Select profile 1–5 | Switch the active Bluetooth connection to that slot |
+| Next / Previous | Cycle forward or backward through your saved profiles |
+| Clear | Remove the pairing stored in the current slot |
+| Clear All | Remove all pairings (destructive — cannot be undone) |
+
+## Troubleshooting
+
+For help with Bluetooth pairing failures, dropped connections, or profile issues, see the [Bluetooth troubleshooting](/troubleshooting/bluetooth-problems) guide.

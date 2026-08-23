@@ -1,0 +1,38 @@
+---
+title: "Fix Bluetooth Connection Problems with MinimalPad"
+sidebarTitle: "Bluetooth Problems"
+description: "Resolve Bluetooth issues with MinimalPad Studio, including devices not appearing, dropped connections, and stale OS pairings."
+---
+
+Bluetooth connection issues with MinimalPad Studio are often caused by browser limitations, missing battery power, or stale pairings left over from a previous session. Work through the relevant section below to resolve the problem.
+
+<AccordionGroup>
+  <Accordion title="MinimalPad is powered on but won't appear in the Studio Bluetooth picker">
+    - Confirm that a 3.7V LiPo battery is connected to the MinimalPad and has sufficient charge. The MinimalPad requires a battery for wireless operation — it cannot broadcast over Bluetooth when running on USB power alone.
+    - Confirm you are using Chrome. Web Bluetooth support varies by browser and operating system, and Chrome provides the most consistent support.
+    - On Linux, Web Bluetooth may require enabling an experimental Chrome flag. If you run into this, switching to a USB connection is the most reliable alternative.
+    - Try refreshing Studio at [https://studio.minimalmacropad.com/configure](https://studio.minimalmacropad.com/configure) and clicking the Bluetooth connection option again. The browser's Bluetooth picker should appear — select your MinimalPad from the list.
+  </Accordion>
+
+  <Accordion title="MinimalPad was working over Bluetooth but stopped connecting">
+    - Check which Bluetooth profile is active on the MinimalPad. If the active profile does not match the one your computer is paired to, the devices will not reconnect. If needed, connect over USB in Studio and assign a **Select Profile** key to switch profiles easily in the future.
+    - If your operating system has a stale or corrupted pairing entry for the MinimalPad, remove the device from your OS Bluetooth settings completely, then pair it again from scratch.
+    - Press a key on the MinimalPad to wake it from sleep. ZMK firmware puts the device to sleep after a period of inactivity to conserve battery, and it may not reconnect automatically until a keypress is detected.
+  </Accordion>
+
+  <Accordion title="Connected in OS Bluetooth settings but Studio doesn't see it">
+    Studio uses the Web Bluetooth API, which is separate from your operating system's Bluetooth stack. Being paired at the OS level does not make the device visible inside Studio's connection picker. To connect in Studio, open [https://studio.minimalmacropad.com/configure](https://studio.minimalmacropad.com/configure), click the Bluetooth connection option, and select the MinimalPad from the browser's own Bluetooth picker — not from OS settings.
+  </Accordion>
+
+  <Accordion title="Bluetooth keeps disconnecting during use">
+    - Check the battery level. A low battery is a common cause of an unstable BLE connection. Charge the battery or try a fresh one.
+    - Move the MinimalPad closer to your computer to improve signal strength. Obstacles such as monitors, metal desk surfaces, and other wireless devices can interfere with BLE.
+    - If Bluetooth remains unreliable in your environment, switch to USB for Studio configuration. Key assignments you save over USB will be stored on the device and work correctly over Bluetooth afterward.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  USB is always the most reliable connection method for Studio configuration. If Web Bluetooth is unavailable or unstable in your browser or operating system, connect with a USB-C data cable instead — everything in Studio works identically over USB.
+</Tip>
+
+For the standard Bluetooth connection walkthrough, see the [Bluetooth connection guide](/connecting/connect-bluetooth).

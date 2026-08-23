@@ -1,0 +1,51 @@
+---
+title: "Save, Discard, and Disconnect in MinimalPad Studio"
+sidebarTitle: "Save & Discard"
+description: "Understand the Assign → Save workflow in Studio: when changes hit the device, how to make them permanent, how to revert, and when it's safe to disconnect."
+---
+
+Studio uses a two-stage workflow for key changes: **Assign** sends a change to the device right away so you can test it, and **Save** makes it permanent. Understanding this distinction helps you edit confidently and avoid accidentally losing work.
+
+## The two-stage workflow
+
+### Assign
+
+When you click **Assign to key** in the action picker, Studio sends the change to your MinimalPad immediately. The key label on the grid updates, and you can press the physical key to test the new behavior straight away.
+
+At this point, the change lives in the device's working memory. It is active and functional, but it has not been written to flash storage. If you power off the device or lose the connection, the change is gone.
+
+### Save
+
+Clicking **Save** — the floppy disk icon in the connection bar — writes all pending changes to your device's flash memory. Changes saved to flash survive power cycles, reboots, and disconnections. This is the step that makes your edits permanent.
+
+The Save and Discard buttons only appear in the connection bar when there are unsaved changes. When everything is up to date, the connection bar shows a checkmark and the word **Saved** instead.
+
+### Discard
+
+Clicking **Discard** — the counter-clockwise arrow icon next to Save — removes all pending changes and reverts the device back to its last saved state. Use Discard if you want to abandon an editing session and return to your previous configuration.
+
+[Screenshot: Studio connection dock showing Save (floppy disk) and Discard (arrow) buttons with unsaved changes]
+
+[Screenshot: Studio connection dock showing the saved checkmark state]
+
+<Warning>
+  If you unplug your MinimalPad or lose the Bluetooth connection before clicking Save, all unsaved changes are lost. The device reverts to its last saved configuration. There is no recovery — save before disconnecting.
+</Warning>
+
+## How to disconnect safely
+
+<Steps>
+  <Step title="Check for unsaved changes">
+    Look at the connection bar at the bottom of the screen. If the Save button (floppy disk) is visible, you have unsaved changes. If you see a checkmark and **Saved**, you're good.
+  </Step>
+  <Step title="Save or discard if needed">
+    Click **Save** to keep your changes, or **Discard** to abandon them and revert to the last saved state.
+  </Step>
+  <Step title="Disconnect or close Studio">
+    Once the saved state is confirmed (checkmark visible), you can unplug the USB cable, close the browser tab, or click **Disconnect** in the connection bar. No special disconnect procedure is needed beyond saving first.
+  </Step>
+</Steps>
+
+<Tip>
+  Get into the habit of saving after each key you remap — not just at the end of a session. This way, a surprise disconnection can only undo your most recent unsaved change, not an entire session of edits.
+</Tip>

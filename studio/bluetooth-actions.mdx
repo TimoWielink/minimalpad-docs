@@ -1,0 +1,57 @@
+---
+title: "Assign Bluetooth Controls to MinimalPad Keys"
+sidebarTitle: "Bluetooth Actions"
+description: "Assign Bluetooth profile switching, connection management, and USB/BT output toggling to MinimalPad keys using MinimalPad Studio's Device Controls."
+---
+
+MinimalPad supports up to 5 Bluetooth profiles, letting you stay paired with multiple devices at once. By assigning Bluetooth actions to keys, you can switch between your Mac, PC, tablet, or any other paired device with a single press — no digging into OS Bluetooth settings required.
+
+## Assign a Bluetooth action
+
+<Steps>
+  <Step title="Open Studio and connect your MinimalPad">
+    Go to [studio.minimalmacropad.com/configure](https://studio.minimalmacropad.com/configure) in Chrome or Edge, then connect via USB or Bluetooth.
+  </Step>
+  <Step title="Click the key you want to assign">
+    Click any key on the on-screen layout. The action picker opens on the right.
+  </Step>
+  <Step title="Choose Device Controls">
+    Select **Device Controls** from the action category picker, then browse the Bluetooth actions.
+  </Step>
+  <Step title="Select a Bluetooth action">
+    Choose the action you want from the list below.
+  </Step>
+  <Step title="Click Assign">
+    The action is applied immediately.
+  </Step>
+  <Step title="Save your changes">
+    Click **Save** to write the assignment to your MinimalPad's flash memory.
+  </Step>
+</Steps>
+
+## Available Bluetooth actions
+
+| Action | What it does |
+|---|---|
+| Select Profile 1 | Switches to Bluetooth slot 1 and connects to the paired device on that slot |
+| Select Profile 2 | Switches to Bluetooth slot 2 and connects to the paired device on that slot |
+| Select Profile 3 | Switches to Bluetooth slot 3 and connects to the paired device on that slot |
+| Select Profile 4 | Switches to Bluetooth slot 4 and connects to the paired device on that slot |
+| Select Profile 5 | Switches to Bluetooth slot 5 and connects to the paired device on that slot |
+| Next Profile | Switches to the next numbered Bluetooth slot |
+| Previous Profile | Switches to the previous numbered Bluetooth slot |
+| Clear Profile | Removes the pairing for the currently active Bluetooth slot |
+| Clear All Profiles | Removes every Bluetooth pairing stored on the device |
+| USB/BT Output Toggle | Switches the active output between USB and Bluetooth |
+
+<Warning>
+  **Clear All Profiles** is destructive. It erases every Bluetooth pairing stored on your MinimalPad in one action. After using it, your MinimalPad will not reconnect to any previously paired device — you will need to pair each one again from scratch. Assign this action carefully, and consider placing it on a secondary layer so it cannot be triggered accidentally.
+</Warning>
+
+<Warning>
+  **Clear Profile** removes the pairing for the current Bluetooth slot only. The device on that slot will not reconnect until you initiate a new pairing from that device's Bluetooth settings.
+</Warning>
+
+<Tip>
+  Put Select Profile 1, 2, and 3 on a dedicated layer alongside your other device controls. That way you can jump between your Mac (slot 1), Windows PC (slot 2), and tablet or phone (slot 3) instantly — just hold the layer key and tap the slot number.
+</Tip>

@@ -1,28 +1,11 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "name": "MinimalPad",
+  "projectType": "saas",
+  "projectName": "MinimalPad",
+  "projectDescription": "MinimalPad is a compact, wireless, low-profile 16-key macropad with a rotary encoder, RGB underglow, and ZMK firmware, configured through the browser-based MinimalPad Studio without reflashing.",
   "theme": "willow",
-  "favicon": "https://media.brand.dev/4ceb1363-009a-420b-9abb-a8c3b54f79a1.png",
-  "colors": {
-    "primary": "#000000",
-    "light": "#9c9c9c",
-    "dark": "#3c3c3c"
-  },
-  "navbar": {
-    "primary": {
-      "type": "button",
-      "label": "Open Studio",
-      "href": "https://studio.minimalmacropad.com/configure"
-    }
-  },
-  "topbar": {
-    "style": "default"
-  },
-  "footer": {
-    "socials": {
-      "github": "https://github.com/TimoWielink/zmk-config-minimalpad"
-    }
-  },
+  "primaryColor": "#000000",
+  "lightColor": "#9c9c9c",
+  "darkColor": "#3c3c3c",
   "navigation": {
     "tabs": [
       {
@@ -106,5 +89,30 @@
         ]
       }
     ]
-  }
+  },
+  "keyFeatures": [
+    "16 programmable low-profile mechanical keys in a 4×4 grid",
+    "Rotary encoder with configurable push action",
+    "USB-C and Bluetooth Low Energy (5 profiles)",
+    "RGB underglow with 16 WS2812 LEDs",
+    "Kailh Choc hot-swap sockets — switch without soldering",
+    "ZMK firmware with no-driver OS compatibility (macOS, Windows, Linux)",
+    "MinimalPad Studio — browser-based keymap editor, no reflashing required",
+    "Available as DIY kit or fully assembled"
+  ],
+  "publicApiSurface": [
+    "MinimalPad Studio web app: https://studio.minimalmacropad.com/configure",
+    "USB/Serial connection (Web Serial API, Chrome/Edge)",
+    "Bluetooth connection (Web Bluetooth API, Chrome/Edge)",
+    "Key assignment categories: Shortcut, Single Key, Media & Apps, Layers, Device Controls, Advanced",
+    "Layer management: add, remove, rename layers via Studio",
+    "Save / Discard changes via Studio",
+    "Bluetooth profile actions: Select (1–5), Next, Previous, Clear, Clear All",
+    "RGB underglow actions: Toggle, On/Off, Hue ±, Saturation ±, Brightness ±, Speed ±, Next/Prev Effect",
+    "Encoder press: configurable key in Studio",
+    "Encoder rotation: firmware-defined (requires reflash to change)",
+    "Firmware build artifact: minimalpad_with_studio (UF2, via GitHub Actions)",
+    "Bootloader entry: double-click reset button → USB mass storage drive",
+    "Firmware repo: https://github.com/TimoWielink/zmk-config-minimalpad"
+  ]
 }

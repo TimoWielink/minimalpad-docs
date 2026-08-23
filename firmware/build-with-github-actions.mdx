@@ -1,0 +1,69 @@
+---
+title: "Build Custom MinimalPad Firmware with GitHub Actions"
+sidebarTitle: "Build with GitHub"
+description: "Fork the MinimalPad firmware repo and use GitHub Actions to compile custom firmware — no local ZMK environment or command-line tools required."
+---
+
+If you want to customise the firmware — to change encoder rotation, add macros, or modify any other compiled behavior — you need to build your own firmware from source. GitHub Actions handles the compilation for you in the cloud, so you do not need to install a local ZMK development environment or any build tools on your own computer.
+
+## What Is a Fork?
+
+A **fork** is a personal copy of a GitHub repository that you control. When you fork the MinimalPad firmware repository, you get your own version at `https://github.com/YOUR-USERNAME/zmk-config-minimalpad`. Changes you make to your fork only affect your copy — the original repository is untouched.
+
+<Tip>
+GitHub's built-in web file editor lets you make small changes directly in the browser. For simple edits like changing encoder rotation, you do not need a Git client or any local setup.
+</Tip>
+
+## Steps
+
+<Steps>
+
+### Sign in to GitHub
+
+Go to [https://github.com](https://github.com) and sign in. If you don't have an account, create a free one — no paid plan is required to use GitHub Actions for this purpose.
+
+### Open the firmware repository
+
+Go to [https://github.com/TimoWielink/zmk-config-minimalpad](https://github.com/TimoWielink/zmk-config-minimalpad).
+
+### Fork the repository
+
+Click the **Fork** button in the top-right corner of the repository page, then click **Create fork**. GitHub creates your personal copy at `https://github.com/YOUR-USERNAME/zmk-config-minimalpad`.
+
+`[Screenshot: GitHub repository Fork button]`
+
+### Make your changes
+
+Edit the firmware source files in your fork. See [Advanced: Customize MinimalPad Firmware](/firmware/advanced-customization) for a guide to which files to change and what to modify.
+
+GitHub's web editor works well for straightforward edits: click any file, click the pencil icon to edit, make your change, and click **Commit changes**.
+
+### Commit and push your changes
+
+When you commit using the GitHub web editor, your changes are pushed immediately. If you are using a local Git client, push your changes to the `main` branch of your fork.
+
+### Enable Actions on your fork
+
+Click **Actions** in the top navigation of your forked repository. If GitHub shows a prompt saying workflows are disabled, click **"I understand my workflows, enable them"** to activate GitHub Actions for your fork.
+
+### Trigger a build
+
+A build starts automatically when you push changes to your fork. You can also trigger one manually: click **Actions**, select the workflow from the left panel, and click **Run workflow**.
+
+`[Screenshot: GitHub Actions tab showing a successful workflow run]`
+
+### Wait for the build to complete
+
+The build typically takes a few minutes. A green checkmark next to the run indicates success. A red ✕ means something went wrong — click the run to see the error log.
+
+### Download the artifact
+
+Click the completed workflow run, then scroll to the **Artifacts** section at the bottom of the page. Click **`minimalpad_with_studio`** to download the `.zip` file.
+
+`[Screenshot: Artifacts section at the bottom of a workflow run showing minimalpad_with_studio]`
+
+### Unzip and flash the firmware
+
+Unzip the downloaded archive to find the `.uf2` file, then follow the steps in [Install the MinimalPad Studio Firmware](/firmware/install-base-firmware) to flash it to your device.
+
+</Steps>

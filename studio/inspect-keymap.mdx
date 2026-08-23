@@ -1,0 +1,44 @@
+---
+title: "Inspect Your Current MinimalPad Key Assignments"
+sidebarTitle: "Inspect Keymap"
+description: "Learn how to read your MinimalPad's current key assignments in Studio — including per-layer views, key detail panels, and the encoder area."
+---
+
+Before you change anything, it helps to see exactly what your MinimalPad is already configured to do. Studio reads the configuration directly from your connected device and displays it on a visual grid that mirrors the physical layout of your pad. What you see is the authoritative view of your current keymap — pulled from the device, not from a fixed default.
+
+## How to inspect your keymap
+
+<Steps>
+  <Step title="Connect your MinimalPad to Studio">
+    Open [Studio](https://studio.minimalmacropad.com/configure) and connect your device. See [Connect via USB](/connecting/connect-usb) if you need help with this step. Once connected and in the unlocked (green) state, Studio loads your configuration from the device automatically.
+  </Step>
+  <Step title="Studio loads your current configuration">
+    After connecting, Studio fetches your keymap and available behaviors directly from the device. The 4×4 key grid populates with the current assignment labels for the active layer.
+  </Step>
+  <Step title="Click a layer tab to view that layer">
+    The layer tabs appear at the top of the interface. Click any tab to switch to that layer and see its key assignments on the grid.
+  </Step>
+  <Step title="Read the label on each key">
+    Each key in the grid displays a short label describing its current action — for example, `Ctrl+C`, `Mute`, `Layer 2`, or `BT Profile 1`. Labels reflect exactly what the device will do when you press that key on that layer.
+  </Step>
+  <Step title="Click a key to see full assignment detail">
+    Clicking any key opens the assignment detail panel. This shows the full action, behavior type, and any configured parameters — useful for understanding complex assignments like Mod-Tap or Layer-Tap keys.
+  </Step>
+  <Step title="Switch between layers to see the full configuration">
+    Repeat for each layer tab to build a complete picture of your keymap across all layers.
+  </Step>
+</Steps>
+
+[Screenshot: Studio with a layer selected, showing key labels on the 4×4 grid and the encoder area]
+
+[Screenshot: A key clicked in Studio, showing its full action detail panel]
+
+<Note>
+  The assignments displayed in Studio are read directly from your device. This is the authoritative view of your current configuration — not a preset or default template.
+</Note>
+
+## The encoder area
+
+The encoder press button (key position 16) appears alongside the 4×4 grid. It shows its current assignment label and behaves like any other key — click it to view or change its assignment.
+
+The encoder rotation labels (clockwise and counter-clockwise) are also displayed, but with a lock icon (🔒). These values are defined in the firmware and cannot be changed through Studio. To change encoder rotation behavior, you need to edit the firmware keymap file and reflash. See [Encoder Rotation](/studio/encoder) and [Advanced Firmware Customization](/firmware/advanced-customization) for details.

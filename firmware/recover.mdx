@@ -1,0 +1,62 @@
+---
+title: "Recover Your MinimalPad with a Fresh Firmware Flash"
+sidebarTitle: "Recovery"
+description: "Restore an unresponsive or misconfigured MinimalPad by entering bootloader mode and flashing fresh firmware — no special tools needed."
+---
+
+If your MinimalPad is not responding correctly and Studio changes are not helping, a fresh firmware flash will restore it to a working state. The bootloader — the recovery mode built into the microcontroller — is always accessible via the reset button, even when the main firmware is broken or unresponsive.
+
+## When to Recover
+
+- MinimalPad Studio can no longer find or connect to the device
+- Incorrect or incompatible firmware was flashed
+- The device has an unusable or corrupted configuration
+- Keys are not responding as expected and reconfiguring in Studio has not resolved the issue
+
+<Note>
+Recovery replaces the firmware. It does **not** wipe your Bluetooth pairings — those are stored separately and survive a firmware flash.
+</Note>
+
+## Steps
+
+<Steps>
+
+### Download the firmware
+
+Get the **`minimalpad_with_studio`** firmware artifact from GitHub Actions. Follow the download steps in [Install the MinimalPad Studio Firmware](/firmware/install-base-firmware), then unzip the archive to find the `.uf2` file.
+
+### Connect with a data-capable cable
+
+Plug your MinimalPad into your computer using a **data-capable USB-C cable**. A charge-only cable will not expose the bootloader drive.
+
+### Enter bootloader mode
+
+**Double-click the reset button** on the PCB. After the second click, a USB mass storage drive appears on your computer.
+
+<Note>
+If the double-click doesn't work on the first try, vary the speed slightly. Some controllers respond to a specific double-click timing — try a slightly faster or slower rhythm.
+</Note>
+
+`[Screenshot: Bootloader USB drive in file manager with UF2 file being copied]`
+
+### Drag and drop the UF2 file
+
+Drag the `.uf2` file onto the bootloader drive, just as you would copy a file to a USB drive.
+
+### Wait for the device to restart
+
+The drive disappears automatically when the copy is complete. MinimalPad restarts itself with the fresh firmware — no button press is needed.
+
+### Reconnect in Studio
+
+Open [MinimalPad Studio](https://studio.minimalmacropad.com/configure) in Chrome or Edge and connect your device. It should respond normally.
+
+</Steps>
+
+## After Recovery
+
+A fresh firmware flash resets your key assignments to the firmware defaults. Open Studio to reconfigure your keys and layers. Your changes are saved to the device's flash memory as you assign them.
+
+<Tip>
+If the bootloader drive does not appear even after trying a data cable and varying the double-click speed, see [Flashing Problems](/troubleshooting/flashing-problems) for further troubleshooting.
+</Tip>

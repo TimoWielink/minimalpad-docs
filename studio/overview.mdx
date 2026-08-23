@@ -1,0 +1,39 @@
+---
+title: "MinimalPad Studio: Browser-Based Key Configuration"
+sidebarTitle: "Studio Overview"
+description: "MinimalPad Studio lets you remap every key, manage layers, and assign RGB and Bluetooth actions — directly in your browser, no reflashing needed."
+---
+
+MinimalPad Studio is the official browser-based configurator for your MinimalPad. Open it at [studio.minimalmacropad.com/configure](https://studio.minimalmacropad.com/configure), connect your device, and start editing — no software to install, no firmware to rebuild.
+
+Studio communicates directly with your connected MinimalPad using the ZMK Studio RPC protocol. When you open it, Studio reads the actual configuration stored on the device and displays it on screen. What you see is your real, current keymap — not a generic template or default layout.
+
+## What you can do in Studio
+
+- **Change key assignments** — remap any of the 16 keys on any layer to a shortcut, single key, media action, layer switch, Bluetooth command, RGB action, or advanced ZMK behavior
+- **Manage layers** — add new layers, rename existing ones, remove layers you no longer need, and switch between them to view or edit their assignments
+- **Assign Bluetooth actions** — switch between up to five paired device profiles, or clear pairings from any key
+- **Assign RGB actions** — map keys to toggle lighting, adjust hue, saturation, brightness, speed, or cycle through effects
+- **Inspect your configuration** — see exactly what every key does before making any changes
+
+## How saving works
+
+When you assign a new action to a key, Studio sends the change to your device immediately. You can test the key right away. To make the change permanent, click **Save** — this writes the configuration to your device's flash memory so it survives power cycles, reboots, and disconnections.
+
+## Open Studio
+
+<CardGroup cols={1}>
+  <Card title="MinimalPad Studio" icon="sliders" href="https://studio.minimalmacropad.com/configure">
+    Open the browser-based configurator. Requires Chrome or Edge with your MinimalPad connected.
+  </Card>
+</CardGroup>
+
+[Screenshot: Studio main interface showing the 4×4 key grid, layer tabs, and connection status]
+
+<Note>
+  Studio requires **Chrome or Edge**. Firefox and Safari do not support the Web Serial API or Web Bluetooth API that Studio relies on.
+</Note>
+
+<Note>
+  No unlock step is required. As soon as your MinimalPad connects, you are in the ready-to-edit (green) state. Start remapping immediately.
+</Note>

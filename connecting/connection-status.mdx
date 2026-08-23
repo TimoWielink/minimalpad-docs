@@ -1,0 +1,61 @@
+---
+title: "Understanding MinimalPad Studio Connection Status"
+sidebarTitle: "Connection Status"
+description: "Learn what each Studio connection state means — from disconnected to fully ready — and how to respond when the connection drops or changes unexpectedly."
+---
+
+Studio displays a persistent status bar at the bottom of the screen so you always know the current state of your connection to MinimalPad. The indicator changes colour and label in real time as the connection moves through its stages.
+
+## Connection states at a glance
+
+| State | Indicator | What it means |
+|---|---|---|
+| Disconnected | Grey dot — "Disconnected" | No device is connected. Click **Connect** to start a session. |
+| Connecting | Amber pulsing dot — "Connecting…" | Studio is establishing the connection. Wait a few seconds. |
+| Connected / Ready | Green dot — "MinimalPad connected" | Fully connected and ready to edit. |
+| Unsaved changes | Green dot + **Save** button | Key assignments have been sent to the device but not yet written to flash. |
+| Saved | Green dot + checkmark — "Saved" | All changes have been written to device storage and will persist across reboots. |
+
+<Note>
+  There is no "Locked" state in normal operation. MinimalPad firmware is built with `CONFIG_ZMK_STUDIO_LOCKING=n`, which means the device skips the lock/unlock cycle entirely. The device is fully editable as soon as the indicator turns green — you will never be prompted to press an unlock key.
+</Note>
+
+## Saving and discarding changes
+
+When you assign a key in Studio, the change is sent to the device immediately so you can test it right away. However, the change is held in temporary memory until you explicitly save it to flash.
+
+- **Save** — writes all pending changes to the device's non-volatile storage. Changes survive power-off and reconnection.
+- **Discard** — reverts all unsaved changes back to the last saved state. This action cannot be undone.
+
+<Tip>
+  Save your changes before disconnecting or closing the browser tab. If the device disconnects while there are unsaved changes — for example because the USB cable is pulled — those changes are lost and cannot be recovered.
+</Tip>
+
+## Connection errors
+
+### "Could not connect" on first attempt
+
+This usually means Studio could not open the port or establish a GATT link. Try the following:
+
+- Check that the USB cable is fully seated (USB side) and is data-capable, not charge-only.
+- Try a different USB port or remove any passive USB hubs from the chain.
+- Close any other application that may be holding the serial port open (terminal emulators, flashing tools).
+- Confirm you are using Chrome or Edge — other browsers do not support Web Serial or Web Bluetooth.
+
+### Device disappears mid-session
+
+If MinimalPad disconnects while you are working, the status bar returns to the grey "Disconnected" state. Studio cannot reconnect automatically.
+
+1. Check whether the cable became loose or the battery ran low.
+2. Reconnect using the **Connect** button in the status bar.
+3. Your saved keymap reloads from the device. Any changes that were not saved before the disconnection are gone.
+
+### Status stuck on "Connecting…"
+
+If the amber indicator does not resolve to green after 10–15 seconds:
+
+- Unplug and replug the USB cable (or power-cycle the pad for Bluetooth).
+- Reload the Studio page and try connecting again.
+- Check that the `minimalpad_with_studio` firmware is flashed — the standard firmware build does not include Studio support.
+
+For more detailed guidance, see the [Studio cannot find device](/troubleshooting/studio-cannot-find) and [Bluetooth troubleshooting](/troubleshooting/bluetooth-problems) pages.
