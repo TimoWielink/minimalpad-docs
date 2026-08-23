@@ -1,7 +1,7 @@
 ---
-title: "Understanding MinimalPad Studio Connection Status"
+title: "MinimalPad Studio Connection Status Indicator Guide"
 sidebarTitle: "Connection Status"
-description: "Learn what each Studio connection state means — from disconnected to fully ready — and how to respond when the connection drops or changes unexpectedly."
+description: "Learn what each Studio connection state means, from disconnected to fully ready, and what to do when the status indicator changes unexpectedly."
 ---
 
 Studio displays a persistent status bar at the bottom of the screen so you always know the current state of your connection to MinimalPad. The indicator changes colour and label in real time as the connection moves through its stages.
@@ -12,12 +12,13 @@ Studio displays a persistent status bar at the bottom of the screen so you alway
 |---|---|---|
 | Disconnected | Grey dot — "Disconnected" | No device is connected. Click **Connect** to start a session. |
 | Connecting | Amber pulsing dot — "Connecting…" | Studio is establishing the connection. Wait a few seconds. |
-| Connected / Ready | Green dot — "MinimalPad connected" | Fully connected and ready to edit. |
+| Connected | Grey dot — "Connected" | Transport link established; Studio is performing a quick lock-state check before enabling editing. This state is brief and transitions automatically. |
+| Ready | Green dot — "MinimalPad connected" | Fully connected and ready to edit. This is the normal operating state you will spend most time in. |
 | Unsaved changes | Green dot + **Save** button | Key assignments have been sent to the device but not yet written to flash. |
 | Saved | Green dot + checkmark — "Saved" | All changes have been written to device storage and will persist across reboots. |
 
 <Note>
-  There is no "Locked" state in normal operation. MinimalPad firmware is built with `CONFIG_ZMK_STUDIO_LOCKING=n`, which means the device skips the lock/unlock cycle entirely. The device is fully editable as soon as the indicator turns green — you will never be prompted to press an unlock key.
+  There is no "Locked" state in normal operation. MinimalPad firmware is built with `CONFIG_ZMK_STUDIO_LOCKING=n`, which means the device skips the lock/unlock cycle entirely. Studio moves from "Connected" to "MinimalPad connected" automatically without ever prompting you to press an unlock key. If you ever see a "Locked" indicator — which should not occur with the standard MinimalPad firmware — re-flash the `minimalpad_with_studio` firmware build.
 </Note>
 
 ## Saving and discarding changes

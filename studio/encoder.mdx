@@ -1,5 +1,5 @@
 ---
-title: "Configure the MinimalPad Rotary Encoder"
+title: "Configure the MinimalPad Rotary Encoder in MinimalPad Studio"
 sidebarTitle: "Encoder"
 description: "Learn how to configure the MinimalPad rotary encoder — assign any action to the encoder press in Studio, and understand how rotation is set in firmware."
 ---
@@ -28,7 +28,7 @@ The encoder press is treated as a regular configurable key position. You assign 
   </Step>
 </Steps>
 
-`[Screenshot: Studio showing the encoder area with the press key highlighted and rotation labels showing the lock icon]`
+
 
 <Note>
   On different layers, the encoder press key can have a completely different action — just like any other key. For example, the press can be Play/Pause on the base layer and RGB Toggle on a lighting layer. Rotation behavior, however, is set per layer in the firmware and cannot be changed in Studio.
@@ -36,12 +36,7 @@ The encoder press is treated as a regular configurable key position. You assign 
 
 ## Encoder rotation
 
-Turning the encoder clockwise or counter-clockwise triggers firmware-defined actions. Studio displays the rotation assignments with a **lock icon** to indicate they are read-only. You cannot change them from Studio.
-
-In the default firmware, the encoder rotation is mapped as follows:
-
-- **Base layer (Media)**: rotate clockwise → Volume Up, rotate counter-clockwise → Volume Down
-- **BT + LED layer**: rotate clockwise → RGB Brightness Up, rotate counter-clockwise → RGB Brightness Down
+Turning the encoder clockwise or counter-clockwise triggers firmware-defined actions. Studio displays the rotation assignments with a **lock icon** to indicate they are read-only — you cannot change them from Studio. To see the current rotation assignments for each layer, connect your MinimalPad and inspect the encoder area in [MinimalPad Studio](https://studio.minimalmacropad.com/configure).
 
 To change what the encoder rotation does, you need to edit the firmware keymap and reflash. See [Advanced Customization](/firmware/advanced-customization) for instructions.
 

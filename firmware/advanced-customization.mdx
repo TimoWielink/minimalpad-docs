@@ -1,14 +1,16 @@
 ---
-title: "Advanced: Customize MinimalPad Firmware"
+title: "Advanced: Customize MinimalPad Firmware Source Files"
 sidebarTitle: "Advanced Customization"
-description: "Edit the MinimalPad keymap source to change encoder rotation, create firmware macros, and modify compiled behavior beyond what Studio can do."
+description: "Edit the MinimalPad keymap source to change encoder rotation, create firmware macros, and modify compiled behavior beyond what Studio supports."
 ---
 
+Some MinimalPad behaviors are compiled into the firmware and cannot be changed from the browser. This page explains how to modify the firmware source files for those cases — encoder rotation, firmware macros, and default boot behavior. For everything else, [MinimalPad Studio](https://studio.minimalmacropad.com/configure) is the right tool. See [Firmware vs Studio](/firmware/firmware-and-studio) if you are unsure which approach you need.
+
 <Warning>
-This page is for advanced users who need to modify the firmware source code. Most key customization — including assigning keys, managing layers, and controlling RGB — can be done without touching the firmware. Use [MinimalPad Studio](https://studio.minimalmacropad.com/configure) for everyday configuration. See [Firmware vs Studio](/firmware/firmware-and-studio) to decide which approach you need.
+This page is for advanced users who need to edit firmware source code. Most key customization — including assigning keys, managing layers, and controlling RGB — can be done directly in Studio without building firmware.
 </Warning>
 
-Some MinimalPad behaviors are compiled into the firmware and cannot be changed from the browser. To modify them, you edit the firmware source files, build new firmware using GitHub Actions, and flash the result to your device.
+To make advanced changes, you edit the firmware source files in your forked repository, build new firmware using GitHub Actions, and flash the result to your device.
 
 ## When Advanced Customization Is Needed
 

@@ -1,7 +1,7 @@
 ---
-title: "Install the MinimalPad Studio Firmware"
+title: "How to Install MinimalPad Studio Firmware on Your Device"
 sidebarTitle: "Install Firmware"
-description: "Download the minimalpad_with_studio firmware artifact from GitHub Actions and flash it to your MinimalPad in a few simple steps."
+description: "Download the minimalpad_with_studio firmware artifact from GitHub Actions and flash it to your MinimalPad using a USB-C cable and the UF2 bootloader."
 ---
 
 Flashing the firmware installs the base software onto your MinimalPad's microcontroller. You need to do this when setting up a new device, recovering from broken or incompatible firmware, or updating to a newer firmware version. The process takes only a few minutes and does not require any programming tools.
@@ -38,8 +38,6 @@ Scroll to the bottom of the workflow run page until you see the **Artifacts** se
 
 Click **`minimalpad_with_studio`** to download it. The file downloads as a `.zip` archive.
 
-`[Screenshot: GitHub Actions page showing the artifact download section with minimalpad_with_studio highlighted]`
-
 ### Unzip the archive
 
 Unzip the downloaded file. Inside you will find a `.uf2` file. This is the firmware file you will copy to your MinimalPad.
@@ -55,8 +53,6 @@ Plug your MinimalPad into your computer using a data-capable USB-C cable.
 <Note>
 The drive name varies by controller. On a Nice!Nano V2 it appears as **NICENANO**. On a generic nRF52840 clone it may appear with a different name. Either way, look for a new removable drive appearing in your file manager or on your desktop.
 </Note>
-
-`[Screenshot: Bootloader USB drive appearing in file manager]`
 
 ### Drag and drop the UF2 file
 

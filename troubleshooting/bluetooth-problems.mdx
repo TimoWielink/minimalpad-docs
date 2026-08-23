@@ -1,7 +1,7 @@
 ---
-title: "Fix Bluetooth Connection Problems with MinimalPad"
+title: "Troubleshoot MinimalPad Bluetooth Connection Issues"
 sidebarTitle: "Bluetooth Problems"
-description: "Resolve Bluetooth issues with MinimalPad Studio, including devices not appearing, dropped connections, and stale OS pairings."
+description: "Resolve Bluetooth issues with MinimalPad Studio, including devices not appearing in the picker, dropped connections, and stale OS pairings."
 ---
 
 Bluetooth connection issues with MinimalPad Studio are often caused by browser limitations, missing battery power, or stale pairings left over from a previous session. Work through the relevant section below to resolve the problem.
@@ -9,8 +9,8 @@ Bluetooth connection issues with MinimalPad Studio are often caused by browser l
 <AccordionGroup>
   <Accordion title="MinimalPad is powered on but won't appear in the Studio Bluetooth picker">
     - Confirm that a 3.7V LiPo battery is connected to the MinimalPad and has sufficient charge. The MinimalPad requires a battery for wireless operation — it cannot broadcast over Bluetooth when running on USB power alone.
-    - Confirm you are using Chrome. Web Bluetooth support varies by browser and operating system, and Chrome provides the most consistent support.
-    - On Linux, Web Bluetooth may require enabling an experimental Chrome flag. If you run into this, switching to a USB connection is the most reliable alternative.
+    - Confirm you are using Chrome or Edge. Web Bluetooth support varies by browser and operating system, and Chromium-based browsers provide the most consistent support.
+    - On Linux, Web Bluetooth may require enabling an experimental Chrome or Edge flag. If you run into this, switching to a USB connection is the most reliable alternative.
     - Try refreshing Studio at [https://studio.minimalmacropad.com/configure](https://studio.minimalmacropad.com/configure) and clicking the Bluetooth connection option again. The browser's Bluetooth picker should appear — select your MinimalPad from the list.
   </Accordion>
 
