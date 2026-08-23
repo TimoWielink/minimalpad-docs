@@ -1,18 +1,43 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "name": "MinimalPad",
+  "description": "Build, connect, configure, and troubleshoot your MinimalPad with clear step-by-step guides.",
   "theme": "willow",
-  "favicon": "https://media.brand.dev/4ceb1363-009a-420b-9abb-a8c3b54f79a1.png",
+  "favicon": "/favicon.png",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
   "colors": {
-    "primary": "#000000",
-    "light": "#9c9c9c",
-    "dark": "#3c3c3c"
+    "primary": "#2d2d2d",
+    "light": "#a3a3a3",
+    "dark": "#737373"
+  },
+  "fonts": {
+    "family": "Poppins"
+  },
+  "appearance": {
+    "default": "system",
+    "strict": false
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
   },
   "navbar": {
+    "links": [
+      {
+        "label": "Shop",
+        "href": "https://www.minimalmacropad.com/"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/TimoWielink/zmk-config-minimalpad"
+      }
+    ],
     "primary": {
       "type": "button",
       "label": "Open Studio",
-      "href": "https://studio.minimalmacropad.com/configure"
+      "href": "https://studio.minimalmacropad.com/"
     }
   },
   "topbar": {
@@ -24,85 +49,71 @@
     }
   },
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Getting Started",
-        "groups": [
-          {
-            "group": "Overview",
-            "pages": [
-              "getting-started/welcome",
-              "getting-started/choose-your-minimalpad",
-              "getting-started/before-you-begin",
-              "getting-started/hardware-overview",
-              "getting-started/quick-start"
-            ]
-          },
-          {
-            "group": "Connecting",
-            "pages": [
-              "connecting/connect-usb",
-              "connecting/connect-bluetooth",
-              "connecting/connection-status"
-            ]
-          }
+        "group": "Start here",
+        "icon": "sparkles",
+        "pages": [
+          "getting-started/welcome",
+          "getting-started/quick-start",
+          "getting-started/choose-your-minimalpad",
+          "getting-started/before-you-begin",
+          "getting-started/hardware-overview"
         ]
       },
       {
-        "tab": "Using Studio",
-        "groups": [
-          {
-            "group": "Studio Basics",
-            "pages": [
-              "studio/overview",
-              "studio/inspect-keymap",
-              "studio/change-a-key",
-              "studio/save-discard-disconnect",
-              "studio/limitations"
-            ]
-          },
-          {
-            "group": "Key Assignments",
-            "pages": [
-              "studio/shortcuts",
-              "studio/single-key",
-              "studio/media-controls",
-              "studio/layers",
-              "studio/bluetooth-actions",
-              "studio/rgb-actions",
-              "studio/encoder"
-            ]
-          }
+        "group": "Connect",
+        "icon": "plug",
+        "pages": [
+          "connecting/connect-usb",
+          "connecting/connect-bluetooth",
+          "connecting/connection-status"
         ]
       },
       {
-        "tab": "Firmware",
-        "groups": [
-          {
-            "group": "Firmware",
-            "pages": [
-              "firmware/firmware-and-studio",
-              "firmware/install-base-firmware",
-              "firmware/build-with-github-actions",
-              "firmware/advanced-customization",
-              "firmware/recover"
-            ]
-          }
+        "group": "Configure with Studio",
+        "icon": "sliders",
+        "pages": [
+          "studio/overview",
+          "studio/inspect-keymap",
+          "studio/change-a-key",
+          "studio/save-discard-disconnect",
+          "studio/limitations"
         ]
       },
       {
-        "tab": "Troubleshooting",
-        "groups": [
-          {
-            "group": "Troubleshooting",
-            "pages": [
-              "troubleshooting/studio-cannot-find",
-              "troubleshooting/bluetooth-problems",
-              "troubleshooting/changes-not-saved",
-              "troubleshooting/flashing-problems",
-              "troubleshooting/faq"
-            ]
-          }
+        "group": "Keys, layers, and actions",
+        "icon": "layer-group",
+        "pages": [
+          "studio/single-key",
+          "studio/shortcuts",
+          "studio/media-controls",
+          "studio/layers",
+          "studio/bluetooth-actions",
+          "studio/rgb-actions",
+          "studio/encoder"
+        ]
+      },
+      {
+        "group": "Firmware",
+        "icon": "microchip",
+        "pages": [
+          "firmware/firmware-and-studio",
+          "firmware/install-base-firmware",
+          "firmware/build-with-github-actions",
+          "firmware/advanced-customization",
+          "firmware/recover"
+        ]
+      },
+      {
+        "group": "Get help",
+        "icon": "life-ring",
+        "pages": [
+          "troubleshooting/studio-cannot-find",
+          "troubleshooting/bluetooth-problems",
+          "troubleshooting/changes-not-saved",
+          "troubleshooting/flashing-problems",
+          "troubleshooting/faq"
         ]
       }
     ]
