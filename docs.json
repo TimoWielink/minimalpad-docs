@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "name": "MinimalPad",
   "description": "Build, connect, configure, and troubleshoot your MinimalPad with clear step-by-step guides.",
-  "theme": "willow",
+  "theme": "mint",
   "favicon": "/favicon.png",
   "logo": {
     "light": "/logo/light.svg",
@@ -14,7 +14,7 @@
     "dark": "#737373"
   },
   "fonts": {
-    "family": "Poppins"
+    "family": "Inter"
   },
   "appearance": {
     "default": "system",

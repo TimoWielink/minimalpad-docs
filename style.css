@@ -1,6 +1,34 @@
-/* Keep long-form text readable while giving tables and step-by-step guides more room. */
-@media (min-width: 1024px) {
-  #content-area > div > div:has(> #content) {
-    max-width: 760px;
+/* Keep the classic three-column layout while giving the article a little more room. */
+@media (min-width: 1536px) {
+  div:has(> #sidebar):has(> #content-container) {
+    max-width: 94.5rem;
   }
+}
+
+/* Keep sidebar scrolling available without showing a permanent scrollbar. */
+#sidebar-content {
+  scrollbar-width: none;
+}
+
+#sidebar-content::-webkit-scrollbar {
+  width: 0;
+}
+
+#sidebar:hover #sidebar-content,
+#sidebar:focus-within #sidebar-content {
+  scrollbar-width: thin;
+}
+
+#sidebar:hover #sidebar-content::-webkit-scrollbar,
+#sidebar:focus-within #sidebar-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+#sidebar-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#sidebar-content::-webkit-scrollbar-thumb {
+  background: rgb(115 115 115 / 45%);
+  border-radius: 999px;
 }
