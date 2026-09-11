@@ -1,14 +1,18 @@
 ---
-title: "Connect MinimalPad to Studio over Bluetooth Wireless"
+title: "Connect MinimalPad to Studio over Bluetooth"
 sidebarTitle: "Connect over Bluetooth"
-description: "Configure MinimalPad wirelessly with Bluetooth. Requires a charged 3.7 V LiPo battery and Chrome or Edge. Use USB as a reliable fallback."
+description: "Pair MinimalPad in your computer's Bluetooth settings, then connect it to Studio in Chrome or Edge."
 ---
 
-Bluetooth lets you configure MinimalPad without a cable — useful when the pad is already in its permanent spot on your desk or mounted to a surface. Once paired, opening Studio and clicking the Bluetooth option reconnects in seconds.
+Bluetooth lets you configure MinimalPad without a cable. You must pair the pad with your computer before you connect it to Studio.
+
+<Note>
+  Your MinimalPad does not search for computers. ZMK makes the pad discoverable by advertising it over Bluetooth. Your computer searches for the pad and starts the pairing.
+</Note>
 
 ## Before you begin
 
-Your MinimalPad needs a 3.7 V LiPo battery connected and sufficiently charged. A battery is **not included** with the pad; see [minimalmacropad.com](https://www.minimalmacropad.com/) for compatible options. Without a battery, the pad only operates while plugged in over USB-C.
+For untethered use, your MinimalPad needs a charged 3.7 V LiPo battery. A battery is **not included** with the pad; see [minimalmacropad.com](https://www.minimalmacropad.com/) for compatible options. You can also power the pad temporarily with a USB-C cable while you pair it over Bluetooth.
 
 <Warning>
   Web Bluetooth support varies by browser and operating system. It works reliably in **Chrome on Windows and macOS**. On Linux, it may require enabling the `chrome://flags/#enable-web-bluetooth` flag. If the Bluetooth option is greyed out or missing in Studio, use USB instead — USB works on all supported platforms.
@@ -19,39 +23,51 @@ Your MinimalPad needs a 3.7 V LiPo battery connected and sufficiently charged. A
 <Tabs>
   <Tab title="First time (new pairing)">
     <Steps>
-      <Step title="Power on MinimalPad">
-        Connect a charged battery and power on the pad, or press any key to wake it from sleep. Make sure the pad is not already connected to another host over Bluetooth — if it is, it will not be discoverable.
+      <Step title="Power on your MinimalPad">
+        Connect a charged battery and switch on the pad. You can also connect a USB-C cable for power. Press any key if the pad is asleep.
+      </Step>
+      <Step title="Select an unused Bluetooth profile">
+        A new MinimalPad starts with an unused profile selected and advertises itself automatically. You do not need a separate discovery or scan key.
+
+        To pair another computer later, select an unused profile. On the default keymap, hold the **bottom-right key** to open the **BT + LED** layer. Keep holding it while you press one of these profile keys:
+
+        | Profile | Key on the BT + LED layer |
+        |---|---|
+        | 1–4 | First, second, third, or fourth key on the top row |
+        | 5 | First key on the second row |
+
+        ZMK automatically advertises the pad when you select an unused profile. Selecting a used profile does not overwrite its existing pairing.
+      </Step>
+      <Step title="Open your computer's Bluetooth settings">
+        Turn on Bluetooth, then start your computer's **Add device**, **Add Bluetooth device**, or **Pair new device** action. Your computer is the device that searches.
+      </Step>
+      <Step title="Pair MinimalPad with your computer">
+        Select **MinimalPad** from the list of nearby devices and complete the pairing in your operating system. Wait until your Bluetooth settings show the pad as connected.
       </Step>
       <Step title="Open Studio in Chrome or Edge">
-        Navigate to [https://studio.minimalmacropad.com/](https://studio.minimalmacropad.com/).
+        Go to [studio.minimalmacropad.com](https://studio.minimalmacropad.com/), click **Connect device**, then select **Bluetooth**.
       </Step>
-      <Step title="Click the Bluetooth option">
-        In the connection dialog, click **Bluetooth** (labelled "Connect wirelessly via BLE"). The browser will open its Bluetooth device picker.
+      <Step title="Allow Studio to use the paired pad">
+        The browser opens its own Bluetooth device picker. Select the MinimalPad you just paired. This browser step gives Studio permission to communicate with the pad; it does not replace pairing in your computer's Bluetooth settings.
       </Step>
-      <Step title="Pair with your MinimalPad">
-        Select **MinimalPad** from the list of nearby devices and confirm the pairing request. Your operating system may show an additional confirmation dialog.
-      </Step>
-      <Step title="Wait for the green status indicator">
-        The status bar transitions from amber (connecting) to green and shows **"MinimalPad connected"**. The pairing is saved by your browser for future sessions.
-      </Step>
-      <Step title="Start editing">
-        Your current keymap loads automatically. No unlock step is required.
+      <Step title="Wait for Studio to connect">
+        The status indicator turns green and shows **"MinimalPad connected"**. Your current keymap loads automatically and is ready to edit.
       </Step>
     </Steps>
   </Tab>
-  <Tab title="Already paired">
+  <Tab title="Already paired with this computer">
     <Steps>
-      <Step title="Power on MinimalPad">
-        Connect the battery (if disconnected) and press a key to wake the pad. Make sure it is not actively connected to another Bluetooth host.
+      <Step title="Power on your MinimalPad">
+        Power the pad and press a key to wake it. Select the Bluetooth profile that you originally paired with this computer.
+      </Step>
+      <Step title="Check the operating-system connection">
+        Open your computer's Bluetooth settings and confirm that MinimalPad is connected. If it is not, connect it there before continuing.
       </Step>
       <Step title="Open Studio in Chrome or Edge">
-        Navigate to [https://studio.minimalmacropad.com/](https://studio.minimalmacropad.com/).
-      </Step>
-      <Step title="Click the Bluetooth option">
-        In the connection dialog, click **Bluetooth**. The browser Bluetooth picker opens.
+        Go to [studio.minimalmacropad.com](https://studio.minimalmacropad.com/), click **Connect device**, then select **Bluetooth**.
       </Step>
       <Step title="Select your MinimalPad">
-        Your previously paired MinimalPad appears in the list. Select it — no new pairing confirmation is needed.
+        Select the paired MinimalPad in the browser's Bluetooth device picker.
       </Step>
       <Step title="Wait for the green status indicator">
         The status bar turns green and shows **"MinimalPad connected"**. You are ready to edit.
@@ -78,6 +94,10 @@ MinimalPad supports **five Bluetooth profiles** (slots 1–5), so you can pair i
 | Next / Previous | Cycle forward or backward through your saved profiles |
 | Clear | Remove the pairing stored in the current slot |
 | Clear All | Remove all pairings (destructive — cannot be undone) |
+
+To pair a new host, select an unused profile. If all five profiles are occupied, connect to Studio over USB and assign **Clear Profile** to a key, then clear the profile you want to reuse. Also remove or forget MinimalPad on the old host. ZMK stores pairing keys on both devices, so clearing only one side can cause failed connection attempts.
+
+For more detail, see ZMK's official [Bluetooth behavior documentation](https://zmk.dev/docs/keymaps/behaviors/bluetooth).
 
 ## Troubleshooting
 

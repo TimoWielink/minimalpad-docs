@@ -4,90 +4,44 @@ sidebarTitle: "Quick Start"
 description: "Connect your MinimalPad to MinimalPad Studio over USB, inspect your current keymap, reassign a key, and save to flash — all in about five minutes."
 ---
 
-This guide walks you through the essential workflow: connect your MinimalPad, open Studio, inspect what's assigned, change one key, and save. The whole process takes about five minutes, and you don't need to reflash firmware or edit any configuration files.
+Connect your MinimalPad, change one key, and save it in about five minutes. You do not need to install drivers, edit files, or reflash firmware.
 
 <Note>
-  No unlock step is required. MinimalPad Studio connects and enters the ready-to-edit state immediately — you'll see the connection status indicator turn green as soon as your device is recognised.
+  No unlock step is required. When the Studio status indicator turns green, the pad is ready to edit.
 </Note>
 
 <Steps>
 
-  <Step title="Gather what you need">
-    Before you start, make sure you have:
-
-    - **Your MinimalPad** — assembled, or assembled and tested if you bought it fully assembled
-    - **A USB-C data cable** (not included) — must be a data cable, not a charge-only cable
-    - **Chrome or Edge** — Studio uses the Web Serial API, which only works in these browsers; Firefox and Safari are not supported
-
-    If you're not sure whether your cable is a data cable, it's worth testing with a known-good cable first. A charge-only cable is the most common reason Studio can't detect a MinimalPad.
-  </Step>
-
   <Step title="Connect your MinimalPad">
-    Plug one end of the USB-C cable into MinimalPad and the other end into your computer.
-
-    The RGB LEDs may light up briefly, and MinimalPad will appear as a USB keyboard device. You don't need to install any drivers on macOS, Windows, or Linux.
+    Connect the pad directly to your computer with a USB-C **data cable**. Charge-only cables provide power but cannot connect to Studio.
   </Step>
 
-  <Step title="Open Studio">
-    In Chrome or Edge, go to:
-
-    **[https://studio.minimalmacropad.com/](https://studio.minimalmacropad.com/)**
-
-    The Studio interface loads in the browser tab — no download or installation required.
-  </Step>
-
-  <Step title="Select your device">
-    1. In Studio, click the **USB / Serial** connection option.
-    2. A browser dialog appears listing available serial devices. Select **MinimalPad** from the list.
-    3. Click **Connect**.
-
-    Studio loads your current keymap from the device. The connection status indicator turns green — this is the normal operating state, and you're ready to edit.
+  <Step title="Open Studio and select the pad">
+    Open [MinimalPad Studio](https://studio.minimalmacropad.com/) in Chrome or Edge. Click **USB / Serial**, select **MinimalPad** in the browser dialog, then click **Connect**.
 
     <Tip>
-      If MinimalPad doesn't appear in the browser dialog, try a different USB port or a different cable. Some USB hubs can also interfere — try connecting directly to the computer.
+      If MinimalPad does not appear, try another data cable or USB port. Avoid USB hubs while troubleshooting.
     </Tip>
   </Step>
 
   <Step title="Inspect your current keys">
-    Once connected, Studio displays a visual map of all 16 keys plus the encoder.
-
-    - Click a **layer tab** at the top to switch between layers and see how keys are assigned on each one.
-    - Click any **key** on the layout to see its current action in the detail panel.
-
-    This is your starting point. You don't need to memorise the default layout — Studio always shows you the live state of the device.
+    Studio shows the live assignments for all 16 keys and the encoder. Select a layer tab, then click any key to inspect its current action.
   </Step>
 
   <Step title="Change one key">
-    1. Click the key you want to reassign on the Studio layout.
-    2. The assignment panel opens. Choose an action category:
-       - **Single Key** — a single keycode such as a letter, number, or modifier
-       - **Shortcut** — a key combination such as Cmd+C or Ctrl+Z
-       - **Media & Apps** — play/pause, volume, app launch, and similar
-       - **Layers** — actions that switch, toggle, or momentarily activate a layer
-       - **Device Controls** — Bluetooth profile management, reset, and device actions
-       - **Advanced** — tap-hold, macros, and other complex behaviours
-    3. Configure the action using the controls in the panel.
-    4. Click **Assign**.
-
-    The key updates immediately on the device — you can test it right away by pressing the physical key.
+    Select the key you want to change, choose an action, configure it, then click **Assign**. See [Change a key](/studio/change-a-key) for every action category.
   </Step>
 
   <Step title="Save your changes">
-    Assigning a key sends the change to the device immediately, but it isn't written to persistent storage until you save.
-
-    Click the **Save** button (the floppy disk icon in the toolbar) to write your changes to the device's flash memory.
-
-    Once saved, your keymap persists across reboots, disconnects, and battery changes. If you close Studio without saving, any unsaved assignments will be lost on the next power cycle.
+    Click **Save** in the toolbar. Saving writes the keymap to the pad so it survives reboots and disconnections.
 
     <Warning>
-      Always save before disconnecting or powering off. Unsaved changes live only in the device's working memory and will not survive a reboot.
+      Save before disconnecting or powering off. Unsaved changes are lost after a reboot.
     </Warning>
   </Step>
 
   <Step title="Test your key">
-    Press the key on your MinimalPad and verify it sends the action you assigned.
-
-    Open a text editor, browser address bar, or any input field — then press the key to confirm it works as expected. If the result isn't right, go back to Studio, click the key, and adjust the assignment.
+    Press the physical key and confirm it performs the new action. If needed, return to Studio, adjust it, and save again.
   </Step>
 
 </Steps>

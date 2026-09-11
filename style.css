@@ -1,0 +1,6 @@
+/* Keep long-form text readable while giving tables and step-by-step guides more room. */
+@media (min-width: 1024px) {
+  #content-area > div > div:has(> #content) {
+    max-width: 760px;
+  }
+}

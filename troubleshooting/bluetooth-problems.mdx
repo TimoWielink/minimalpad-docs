@@ -1,17 +1,18 @@
 ---
 title: "Troubleshoot MinimalPad Bluetooth Connection Issues"
 sidebarTitle: "Bluetooth Problems"
-description: "Resolve Bluetooth issues with MinimalPad Studio, including devices not appearing in the picker, dropped connections, and stale OS pairings."
+description: "Resolve MinimalPad Bluetooth pairing, profile, Studio connection, and stale pairing issues."
 ---
 
 Bluetooth connection issues with MinimalPad Studio are often caused by browser limitations, missing battery power, or stale pairings left over from a previous session. Work through the relevant section below to resolve the problem.
 
 <AccordionGroup>
-  <Accordion title="MinimalPad is powered on but won't appear in the Studio Bluetooth picker">
-    - Confirm that a 3.7V LiPo battery is connected to the MinimalPad and has sufficient charge. The MinimalPad requires a battery for wireless operation — it cannot broadcast over Bluetooth when running on USB power alone.
-    - Confirm you are using Chrome or Edge. Web Bluetooth support varies by browser and operating system, and Chromium-based browsers provide the most consistent support.
-    - On Linux, Web Bluetooth may require enabling an experimental Chrome or Edge flag. If you run into this, switching to a USB connection is the most reliable alternative.
-    - Try refreshing Studio at [https://studio.minimalmacropad.com/](https://studio.minimalmacropad.com/) and clicking the Bluetooth connection option again. The browser's Bluetooth picker should appear — select your MinimalPad from the list.
+  <Accordion title="MinimalPad won't appear in my computer's Bluetooth settings">
+    - Confirm that the pad has power. Use a charged 3.7 V LiPo battery for untethered operation, or connect a USB-C cable temporarily for power.
+    - Press a key to wake the pad.
+    - Make sure the selected ZMK Bluetooth profile is unused. On the default keymap, hold the bottom-right key to open the **BT + LED** layer, then press one of the profile keys. Profiles 1–4 are the four keys on the top row. Profile 5 is the first key on the second row.
+    - Start **Add device**, **Add Bluetooth device**, or **Pair new device** from your computer's Bluetooth settings. The computer scans for the pad; MinimalPad does not scan for the computer.
+    - If the selected profile already belongs to another host, choose an unused profile. ZMK does not overwrite an existing pairing automatically.
   </Accordion>
 
   <Accordion title="MinimalPad was working over Bluetooth but stopped connecting">
@@ -20,8 +21,11 @@ Bluetooth connection issues with MinimalPad Studio are often caused by browser l
     - Press a key on the MinimalPad to wake it from sleep. ZMK firmware puts the device to sleep after a period of inactivity to conserve battery, and it may not reconnect automatically until a keypress is detected.
   </Accordion>
 
-  <Accordion title="Connected in OS Bluetooth settings but Studio doesn't see it">
-    Studio uses the Web Bluetooth API, which is separate from your operating system's Bluetooth stack. Being paired at the OS level does not make the device visible inside Studio's connection picker. To connect in Studio, open [https://studio.minimalmacropad.com/](https://studio.minimalmacropad.com/), click the Bluetooth connection option, and select the MinimalPad from the browser's own Bluetooth picker — not from OS settings.
+  <Accordion title="Connected in Bluetooth settings but Studio doesn't see it">
+    - Confirm you are using Chrome or Edge. Web Bluetooth support varies by browser and operating system.
+    - Confirm that MinimalPad still shows as connected in your computer's Bluetooth settings. Pair and connect it there before opening Studio.
+    - Open [Studio](https://studio.minimalmacropad.com/), click **Connect device**, then select **Bluetooth**. Select MinimalPad again in the browser's device picker. This gives the website permission to use the device you already paired in the operating system.
+    - On Linux, Web Bluetooth may require enabling an experimental Chrome or Edge flag. If Bluetooth remains unavailable, use USB instead.
   </Accordion>
 
   <Accordion title="Bluetooth keeps disconnecting during use">
